@@ -11,7 +11,7 @@ export default class Previous extends React.Component {
   }
   render() {
     return (
-      <button className="waves-effect waves-light btn" onClick={this.updatePrevious}>Previous<i class="material-icons left"></i></button>
+      <button className="waves-effect waves-light btn" onClick={this.updatePrevious}>Previous Page<i class="material-icons left"></i></button>
     )
   }
 }

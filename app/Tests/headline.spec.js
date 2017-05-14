@@ -39,8 +39,5 @@ describe('<HeadLines />', () => {
   it('Should have function that handles the sortBy onclick event', () => {
     expect(wrapper.find('#sort')).to.be.defined;
   });
-  it('Should have a function that sorts the articles', () => {
-    let update = mount(<Headlines {...props} />);
-  });
 });
 
