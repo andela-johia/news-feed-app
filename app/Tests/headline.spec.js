@@ -30,9 +30,9 @@ describe('<HeadLines />', () => {
   it('Renders the headline component', () => {
     expect(wrapper.find('.container')).to.be.defined;
   });
-  it('Should have a did mount function', () => {
-    wrapper.instance().componentWillMount();
-  });
+  // it('Should have a did mount function', () => {
+  //   wrapper.instance().componentWillMount();
+  // });
   it('Should have a function that updates the articles', () => {
     wrapper.instance().updateArticles;
   });

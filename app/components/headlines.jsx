@@ -1,9 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import FeedStore from '../stores/NewsStore';
 import * as ActionSource from '../action/NewsAction';
-import Signout from './Header.jsx';
-import Previous from './Previous.jsx';
+import Signout from './Header';
+import Previous from './Previous';
 
+/**
+ *This component renders the news articles for different news sources.
+ Using the source id and sortby parameter the articles are retrieved by making an api call.
+ *
+ * @class Headlines
+ * @extends {React.Component}
+ */
 class Headlines extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +25,7 @@ class Headlines extends React.Component {
     this.updateSortByAvailables = this.updateSortByAvailables.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     ActionSource.newsHeadlines(this.state.sourceId, '');
     FeedStore.on('change', this.updateArticles);
   }
@@ -28,13 +36,22 @@ class Headlines extends React.Component {
   }
 
   updateArticles() {
-      this.setState({
-        articles: FeedStore.fetchArticles(),
-      });
+    this.setState({
+      articles: FeedStore.fetchArticles(),
+    });
   }
 
-  updateSortByAvailables(e) {
-    const sortStatus = e.target.value;
+  /**
+   * This function changes the state of the sortby params on clicking.
+   * The headline component is unmounted and remounted during a change in event.
+   *
+   * @param {any} event - This event retrieves the value of sortBy params
+   * when clicked inorder to obtain news articles for that particular param
+   *
+   * @memberof Headlines
+   */
+  updateSortByAvailables(event) {
+    const sortStatus = event.target.value;
     if (sortStatus === 'top') {
       ActionSource.newsHeadlines(this.state.sourceId, sortStatus);
       FeedStore.on('change', this.updateArticles);
@@ -43,7 +60,7 @@ class Headlines extends React.Component {
       FeedStore.on('change', this.updateArticles);
     }
 
-    e.preventDefault();
+    event.preventDefault();
   }
   render() {
     const buttonStyle = {
@@ -51,20 +68,20 @@ class Headlines extends React.Component {
 
     };
     const headerStyle = {
-      marginLeft: 450
+      marginLeft: 450,
     };
     const buttonAlign = {
       marginRight: '50px',
       marginLeft: '35px',
     };
     const sourceName = this.state.sourceId;
-    let newsName = sourceName.toUpperCase().replace('-', ' ');
+    const newsName = sourceName.toUpperCase().replace('-', ' ');
     const links = this.state.sortBy.split('+').map(link => (
-      <button id='sort' className="btn waves-effect waves-light" value={link}
+      <button
+        id="sort" className="btn waves-effect waves-light" value={link}
         onClick={this.updateSortByAvailables} style={buttonStyle}
       >{link}</button>
     ));
-    const articles = this.state.articles;
 
     return (
       <div>
@@ -72,18 +89,18 @@ class Headlines extends React.Component {
 
         <br /><h4 style={headerStyle}>{'News from '}{newsName}</h4>
         <br /> <br />
-        <div className='container'>
+        <div className="container">
           <div className="row">
             <div className="col m4">
               <Previous /></div>
             <div className="col m4" style={buttonAlign}>
               {links}</div>
           </div>
-          </div>
+        </div>
 
         <div className="container">
           <div className="row">
-            {this.state.articles.map((item) => (
+            {this.state.articles.map(item => (
               <div className="col m6">
                 <div className="card small grey lighten-4">
                   <div className="card-image">
@@ -102,8 +119,19 @@ class Headlines extends React.Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
 export default Headlines;
+
+Headlines.propTypes = {
+  match: PropTypes.string,
+};
+
+Headlines.defaultProps = {
+  params: {},
+  match: [],
+  source: PropTypes.string,
+  sortBy: PropTypes.string,
+};

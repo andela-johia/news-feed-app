@@ -1,9 +1,8 @@
 import { EventEmitter } from 'events';
-//import * as action from '../action/NewsAction';
 import Dispatcher from '../dispatcher/dispatcher';
 
 /**
- *
+ *Listens and stores data from the action
  * @class FeedStore
  * @extends {EventEmitter}
  */
@@ -15,7 +14,8 @@ class FeedStore extends EventEmitter {
   }
 
   /**
-   *
+   * stores and returns a change in the news sources data from the action upon
+   *  mounting in the source component.
    *
    * @returns
    *
@@ -25,11 +25,27 @@ class FeedStore extends EventEmitter {
     return this.sources;
   }
 
+  /**
+   * Returns a change in the news article data upon mounting in the headline
+   *  component.
+   *
+   * @returns
+   *
+   * @memberof FeedStore
+   */
   fetchArticles() {
     return this.articles;
   }
 
-  handleAction(action) {
+  /**
+   * This function listens for payLoad from the action and stores them
+   * according to their action type.
+   *
+   * @param {any} action - The payload delivered by the dispatcher to the store.
+   *
+   * @memberof FeedStore
+   */
+  handleSourcesArticles(action) {
     switch (action.type) {
       case 'GET_SOURCES': {
         this.sources = action.payLoad;
@@ -46,6 +62,6 @@ class FeedStore extends EventEmitter {
 }
 const feedstore = new FeedStore();
 
-Dispatcher.register(feedstore.handleAction.bind(feedstore));
+Dispatcher.register(feedstore.handleSourcesArticles.bind(feedstore));
 
 export default feedstore;

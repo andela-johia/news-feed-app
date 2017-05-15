@@ -2,7 +2,7 @@
   "extends": "airbnb",
   "env": {
     "browser": true,
-    "mocha":true,
+    "mocha":true
   },
   "plugins": [
     "react",
