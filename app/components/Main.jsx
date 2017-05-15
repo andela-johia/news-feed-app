@@ -1,9 +1,9 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import Sources from './sources.jsx';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-import Login from './home';
-import Headlines from './headlines.jsx';
+import Sources from './Sources';
+import Login from './Login';
+import Headlines from './Headlines';
 
 ReactDOM.render((
   <Router>
@@ -13,4 +13,4 @@ ReactDOM.render((
       <Route exact path="/sources" component={Sources} />
     </Switch>
   </Router>),
-	document.getElementById('app'));
+document.getElementById('app'));
