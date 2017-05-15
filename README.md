@@ -61,3 +61,4 @@ The app requires the user to sign in with a google plus account
 
 ## Contributing
 * Johnbosco Ohia
+
