@@ -1,6 +1,5 @@
 # News Feed application
 
-<<<<<<< HEAD
 [![Coverage Status](https://coveralls.io/repos/github/andela-johia/news-feed-app/badge.svg?branch=deployment)](https://coveralls.io/github/andela-johia/news-feed-app?branch=deployment)
 [![Build Status](https://travis-ci.org/andela-johia/news-feed-app.svg?branch=deployment)](https://travis-ci.org/andela-johia/news-feed-app)
 
@@ -62,5 +61,4 @@ The app requires the user to sign in with a google plus account
 
 ## Contributing
 * Johnbosco Ohia
-=======
->>>>>>> 411a24ab40e256d4453942aaf830d2102c49cda0
+
