@@ -12,7 +12,7 @@ import Previous from './Previous';
  * @class Headlines
  * @extends {React.Component}
  */
-class Headlines extends React.Component {
+export default class Headlines extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -124,7 +124,6 @@ class Headlines extends React.Component {
   }
 }
 
-export default Headlines;
 
 Headlines.propTypes = {
   match: PropTypes.shape({
