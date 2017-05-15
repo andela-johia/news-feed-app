@@ -78,6 +78,7 @@ class Headlines extends React.Component {
     const newsName = sourceName.toUpperCase().replace('-', ' ');
     const links = this.state.sortBy.split('+').map(link => (
       <button
+        key={link}
         id="sort" className="btn waves-effect waves-light" value={link}
         onClick={this.updateSortByAvailables} style={buttonStyle}
       >{link}</button>
@@ -101,7 +102,7 @@ class Headlines extends React.Component {
         <div className="container">
           <div className="row">
             {this.state.articles.map(item => (
-              <div className="col m6">
+              <div className="col m6" key={item.title}>
                 <div className="card small grey lighten-4">
                   <div className="card-image">
                     <img src={item.urlToImage} alt={item.title} />
@@ -126,12 +127,19 @@ class Headlines extends React.Component {
 export default Headlines;
 
 Headlines.propTypes = {
-  match: PropTypes.string,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      sortBy: PropTypes.string,
+      source: PropTypes.string,
+    }),
+  }),
 };
 
 Headlines.defaultProps = {
-  params: {},
-  match: [],
-  source: PropTypes.string,
-  sortBy: PropTypes.string,
+  match: {
+    params: {
+      sortBy: 'top',
+      source: 'abc',
+    },
+  },
 };

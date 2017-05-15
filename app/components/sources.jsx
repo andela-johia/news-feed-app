@@ -70,7 +70,7 @@ export default class Sources extends React.Component {
     const NewsSource = sources.map((item) => {
       const sortsArray = item.sortBysAvailable.toString();
       const sortsString = sortsArray.replace(',', '+');
-      return (<div className="col m4" >
+      return (<div className="col m4" key={item.name}>
         <div className="card small grey lighten-4">
           <span className="card-title">{item.name}</span>
           <div className="card-content">
