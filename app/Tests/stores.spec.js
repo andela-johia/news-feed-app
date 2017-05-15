@@ -1,8 +1,8 @@
 import { expect } from 'chai';
 import Dispatcher from '../dispatcher/dispatcher';
-import FeedStore from '../stores/NewsStore';
+import FeedStore from '../stores/newsStore';
 import sinon from 'sinon';
-import getSources from '../action/NewsAction';
+import getSources from '../action/newsAction';
 import rewire from 'rewire';
 
 const store = rewire('../stores/NewsStore');
