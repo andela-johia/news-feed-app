@@ -1,7 +1,7 @@
 import React from 'react';
 import { expect } from 'chai';
 import { mount, shallow } from 'enzyme';
-import Login from '../components/home';
+import Login from '../components/Login';
 
 
 describe('<Login />', () => {
