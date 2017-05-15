@@ -2,7 +2,7 @@ import React from 'react';
 import { mount, shallow } from 'enzyme';
 import { expect } from 'chai';
 import Headlines from '../components/headlines.jsx';
-import Signout from '../components/Header.jsx';
+import Signout from '../components/header.jsx';
 
 describe('<HeadLines />', () => {
   const props = {

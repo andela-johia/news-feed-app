@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
 import Sources from '../components/sources.jsx';
-import Signout from '../components/Header.jsx';
+import Signout from '../components/header.jsx';
 
 
 describe('<Sources/>', () => {
