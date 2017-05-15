@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import { expect } from 'chai';
-import Headlines from '../components/headlines.jsx';
+import Headlines from '../components/Headlines.jsx';
 import Signout from '../components/Signout.jsx';
 
 describe('<HeadLines />', () => {

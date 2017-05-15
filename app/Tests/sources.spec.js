@@ -2,7 +2,7 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
-import Sources from '../components/sources.jsx';
+import Sources from '../components/Sources.jsx';
 import Signout from '../components/Signout.jsx';
 
 
