@@ -2,7 +2,7 @@
 import React from 'react';
 import { mount, shallow } from 'enzyme';
 import { expect } from 'chai';
-import Signout from '../components/header';
+import Signout from '../components/header.jsx';
 
 describe('<Signout />', () => {
   const wrapper = shallow(<Signout />);
