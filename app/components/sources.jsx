@@ -1,7 +1,7 @@
 import React from 'react';
 import FeedStore from '../stores/NewsStore';
 import * as ActionSource from '../action/NewsAction';
-import Signout from './Header';
+import Signout from './Signout';
 
 
 /**
