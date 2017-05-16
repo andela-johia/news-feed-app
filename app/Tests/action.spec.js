@@ -11,7 +11,7 @@ const dispatcher = sinon.spy(Dispatcher, 'dispatch');
 
 
 describe('getSources action method using Promises', () => {
-  it('should have the dispatcher is called ', (done) => {
+  it('should have the dispatcher called ', (done) => {
     Actions.getSources;
     setTimeout(() => {
       expect(dispatcher).to.have.been.called;

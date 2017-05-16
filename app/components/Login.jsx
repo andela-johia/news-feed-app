@@ -26,13 +26,7 @@ export default class Login extends React.Component {
     localStorage.setItem('userProfile', JSON.stringify(userProfile));
     window.location = '#/sources';
   }
-  /**
-   *
-   *
-   * @param {any} error - an error response is returned if the user profile is invalid.
-   *
-   * @memberof Login
-   */
+
 
   render() {
     const formStyle = {

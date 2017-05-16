@@ -11,7 +11,7 @@ import React from 'react';
 export default class Signout extends React.Component {
 
 
-  static updateLogout() { //eslint-disable-line
+  static updateLogout() {
     localStorage.removeItem('userProfile');
     window.location = '/';
   }

@@ -6,7 +6,6 @@ import getSources from '../action/NewsAction';
 import rewire from 'rewire';
 
 const store = rewire('../stores/NewsStore');
-// const dispatchRegister = require('../dispatcher/dispatcher');
 const registerSpy = sinon.spy(Dispatcher, 'register');
 
 describe('GET_SOURCES', () => {
@@ -30,7 +29,6 @@ describe('GET_SOURCES', () => {
   });
   beforeEach(() => {
     Dispatcher.register(store);
-    //const callback = registerSpy.lastCall.args[0];
   });
   afterEach(() => {
     registerSpy.restore();
@@ -40,9 +38,10 @@ describe('GET_SOURCES', () => {
     expect(registerSpy.callCount).to.equal(1);
   });
   it('Should register an object containing the actionType and the payload', () => {
-    // FeedStore.fetchSources();
+    store.actionSources;
     setTimeout(() => {
       expect(registerSpy).to.be.called;
-    });
+      done();
+    }, 0);
   });
 });

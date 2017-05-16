@@ -30,13 +30,6 @@ describe('<Sources/>', () => {
     const wrapper = shallow(<Sources />);
     expect(wrapper.setState().sources).to.have.length.not.to.equal(0);
   });
-  // it('Should have a component did mount function', () => {
-  //   const wrapper = shallow(<Sources />);
-  //   wrapper.instance().componentDidMount();
-  // });
-  // it('Should have a component will unmount function', () => {
-  //   wrapper.instance().componentWillUnmount();
-  // });
   it('Should have a button that handles onClick event', () => {
     expect(wrapper.find('button')).to.be.defined;
   });
