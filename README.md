@@ -5,7 +5,8 @@
 
 ## Introduction
 * The News feed application consumes a news api to view new sources and also current new headline.
-The app requires the user to sign in with a google plus account
+The app requires the user to sign in with a google plus account. The app has more than 60 news sources
+to choose from.
 
 
 ## Key Features of this Application
@@ -16,27 +17,24 @@ The app requires the user to sign in with a google plus account
 * View every article on the sources homepage.
 
 ## Usage
-* View the app on heroku with this link
-* Sign in with Google plus account
+* Sign in with Google plus account to view news sources.
 * Search for any news source and view their articles.
+* Scroll through the news sources and select a headline.
+* On the headline link click 'READ MORE' to be redirected to the source link.
+
 
 ## Local Installation Guide
 * Run `npm install` to install all the dependencies needed to run the application
 * Install `webpack` globally.
-* Run `npm run dev` to start the server
+* Run `npm run dev` to start the server.
+*
 
 ## Technologies
 * React
 * React-DOM
 * Babel
-* Webpack
 * Eslint
-* Hound CI
-* React-google-in
-* flux
-* mocha
-* enzyme
-* axios
+* Webpack
 
 
 
@@ -57,8 +55,9 @@ The app requires the user to sign in with a google plus account
 * react-router
 * react-router-dom
 * webpack
+* Eslint
+* Enzyme
 
-
-## Contributing
+## Author
 * Johnbosco Ohia
 
