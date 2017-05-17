@@ -32,7 +32,7 @@ describe('getSources action method using Promises', () => {
 
 describe('Get news headline action method with promises', () => {
   it('should have the dispatcher called', () => {
-    Actions.newsHeadlines();
+    Actions.getNewsHeadlines();
     setTimeout(() => {
       expect(dispatcher).to.have.been.called;
       done();

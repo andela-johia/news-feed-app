@@ -1,11 +1,11 @@
 import { expect } from 'chai';
 import Dispatcher from '../dispatcher/dispatcher';
-import FeedStore from '../stores/NewsStore';
+import FeedStore from '../stores/SourceStore';
 import sinon from 'sinon';
 import getSources from '../action/NewsAction';
 import rewire from 'rewire';
 
-const store = rewire('../stores/NewsStore');
+const store = rewire('../stores/SourceStore');
 const registerSpy = sinon.spy(Dispatcher, 'register');
 
 describe('GET_SOURCES', () => {
@@ -41,7 +41,6 @@ describe('GET_SOURCES', () => {
     store.actionSources;
     setTimeout(() => {
       expect(registerSpy).to.be.called;
-      done();
     }, 0);
   });
 });
