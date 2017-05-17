@@ -1,5 +1,5 @@
 import React from 'react';
-import FeedStore from '../stores/NewsStore';
+import SourceStore from '../stores/SourceStore';
 import * as ActionSource from '../action/NewsAction';
 import Signout from './Signout';
 
@@ -26,12 +26,12 @@ export default class Sources extends React.Component {
 
   componentDidMount() {
     ActionSource.getSources();
-    FeedStore.on('change', this.updateNewsFeed);
+    SourceStore.on('change', this.updateNewsFeed);
   }
 
   componentWillUnmount() {
     ActionSource.getSources();
-    FeedStore.removeListener('change', this.updateNewsFeed);
+    SourceStore.removeListener('change', this.updateNewsFeed);
   }
 
   /**
@@ -41,7 +41,7 @@ export default class Sources extends React.Component {
    * @memberof Sources
    */
   updateNewsFeed() {
-    this.setState({ sources: FeedStore.fetchSources() });
+    this.setState({ sources: SourceStore.fetchSources() });
   }
 
 
@@ -61,7 +61,7 @@ export default class Sources extends React.Component {
     let sources = this.state.sources;
 
 
-    if (searchString.length > 0) {
+    if (searchString.length > 0) { // shorten the function
       sources = sources.filter(item => item.name.trim().toLowerCase().match(searchString));
     }
     if (typeof (searchString) === 'number') {
@@ -70,7 +70,7 @@ export default class Sources extends React.Component {
     const NewsSource = sources.map((item) => {
       const sortsArray = item.sortBysAvailable.toString();
       const sortsString = sortsArray.replace(',', '+');
-      return (<div className="col m4" key={item.name}>
+      return (<div className="col s12 m4" key={item.name}>
         <div className="card small grey lighten-4">
           <span className="card-title">{item.name}</span>
           <div className="card-content">

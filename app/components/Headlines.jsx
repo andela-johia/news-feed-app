@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FeedStore from '../stores/NewsStore';
-import * as ActionSource from '../action/NewsAction';
+import HeadlineStore from '../stores/HeadlineStore';
+import * as actionSource from '../action/NewsAction';
 import Signout from './Signout';
 import Previous from './Previous';
 
@@ -26,18 +26,17 @@ export default class Headlines extends React.Component {
   }
 
   componentDidMount() {
-    ActionSource.newsHeadlines(this.state.sourceId, '');
-    FeedStore.on('change', this.updateArticles);
+    actionSource.getNewsHeadlines(this.state.sourceId, '');
+    HeadlineStore.on('change', this.updateArticles);
   }
 
   componentWillUnmount() {
-    ActionSource.newsHeadlines(this.state.sourceId, '');
-    FeedStore.removeListener('change', this.updateArticles);
+    HeadlineStore.removeListener('change', this.updateArticles);
   }
 
   updateArticles() {
     this.setState({
-      articles: FeedStore.fetchArticles(),
+      articles: HeadlineStore.fetchArticles(),
     });
   }
 
@@ -53,11 +52,11 @@ export default class Headlines extends React.Component {
   updateSortByAvailables(event) {
     const sortStatus = event.target.value;
     if (sortStatus === 'top') {
-      ActionSource.newsHeadlines(this.state.sourceId, sortStatus);
-      FeedStore.on('change', this.updateArticles);
+      actionSource.getNewsHeadlines(this.state.sourceId, sortStatus);
+      HeadlineStore.on('change', this.updateArticles);
     } else if (sortStatus === 'latest') {
-      ActionSource.newsHeadlines(this.state.sourceId, sortStatus);
-      FeedStore.on('change', this.updateArticles);
+      actionSource.getNewsHeadlines(this.state.sourceId, sortStatus);
+      HeadlineStore.on('change', this.updateArticles);
     }
 
     event.preventDefault();

@@ -1,16 +1,14 @@
 import { EventEmitter } from 'events';
 import Dispatcher from '../dispatcher/dispatcher';
-
 /**
  *Listens and stores data from the action
  * @class FeedStore
  * @extends {EventEmitter}
  */
-class FeedStore extends EventEmitter {
+class SourceStore extends EventEmitter {
   constructor() {
     super();
     this.sources = [];
-    this.articles = [];
   }
 
   /**
@@ -45,23 +43,16 @@ class FeedStore extends EventEmitter {
    *
    * @memberof FeedStore
    */
-  handleSourcesArticles(action) {
-    switch (action.type) {
-      case 'GET_SOURCES': {
-        this.sources = action.payLoad;
-        this.emit('change');
-        break;
-      }
-      case 'GET_ARTICLES': {
-        this.articles = action.payLoad;
-        this.emit('change');
-        break;
-      }
+  handleSources(action) {
+    if (action.type === 'GET_SOURCES') {
+      this.sources = action.payLoad;
+      this.emit('change');
     }
   }
+
 }
-const feedstore = new FeedStore();
+const sourcestore = new SourceStore();
 
-Dispatcher.register(feedstore.handleSourcesArticles.bind(feedstore));
+Dispatcher.register(sourcestore.handleSources.bind(sourcestore));
 
-export default feedstore;
+export default sourcestore;
