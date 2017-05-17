@@ -68,8 +68,10 @@ export default class Sources extends React.Component {
       return 'Error Invalid Input';
     }
     const NewsSource = sources.map((item) => {
-      const sortsArray = item.sortBysAvailable.toString();
-      const sortsString = sortsArray.replace(',', '+');
+      const sortsArray = item.sortBysAvailable;
+      const links = sortsArray.map(link => (
+        <a key={link} href={`#/sources/${item.id}/${link}`}>{link}</a>
+      ));
       return (<div className="col s12 m4" key={item.name}>
         <div className="card small grey lighten-4">
           <span className="card-title">{item.name}</span>
@@ -77,7 +79,7 @@ export default class Sources extends React.Component {
             <p>{item.description}</p>
           </div>
           <div className="card-action">
-            <a href={`#/sources/${item.id}/${sortsString}`}>{'Headlines'}</a>
+            {links}
           </div>
         </div>
       </div >);

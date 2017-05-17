@@ -22,11 +22,11 @@ export default class Headlines extends React.Component {
     };
 
     this.updateArticles = this.updateArticles.bind(this);
-    this.updateSortByAvailables = this.updateSortByAvailables.bind(this);
+    // this.updateSortByAvailables = this.updateSortByAvailables.bind(this);
   }
 
   componentDidMount() {
-    actionSource.getNewsHeadlines(this.state.sourceId, '');
+    actionSource.getNewsHeadlines(this.state.sourceId, this.state.sortBy);
     HeadlineStore.on('change', this.updateArticles);
   }
 
@@ -49,52 +49,24 @@ export default class Headlines extends React.Component {
    *
    * @memberof Headlines
    */
-  updateSortByAvailables(event) {
-    const sortStatus = event.target.value;
-    if (sortStatus === 'top') {
-      actionSource.getNewsHeadlines(this.state.sourceId, sortStatus);
-      HeadlineStore.on('change', this.updateArticles);
-    } else if (sortStatus === 'latest') {
-      actionSource.getNewsHeadlines(this.state.sourceId, sortStatus);
-      HeadlineStore.on('change', this.updateArticles);
-    }
-
-    event.preventDefault();
-  }
   render() {
-    const buttonStyle = {
-      marginRight: 20,
-
-    };
+    const sortBy = this.state.sortBy.toUpperCase();
     const headerStyle = {
-      marginLeft: 450,
-    };
-    const buttonAlign = {
-      marginRight: '50px',
-      marginLeft: '35px',
+      marginLeft: 300,
     };
     const sourceName = this.state.sourceId;
     const newsName = sourceName.toUpperCase().replace('-', ' ');
-    const links = this.state.sortBy.split('+').map(link => (
-      <button
-        key={link}
-        id="sort" className="btn waves-effect waves-light" value={link}
-        onClick={this.updateSortByAvailables} style={buttonStyle}
-      >{link}</button>
-    ));
 
     return (
       <div>
         <Signout />
 
-        <br /><h4 style={headerStyle}>{'News from '}{newsName}</h4>
+        <br /><h4 style={headerStyle}>{sortBy}{' News from '}{newsName}</h4>
         <br /> <br />
         <div className="container">
           <div className="row">
             <div className="col m4">
               <Previous /></div>
-            <div className="col m4" style={buttonAlign}>
-              {links}</div>
           </div>
         </div>
 
