@@ -2,8 +2,8 @@ import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
-import Sources from '../components/sources';
-import Signout from '../components/Signout';
+import Sources from '../../components/sources';
+import Signout from '../../components/Signout';
 
 
 describe('<Sources/>', () => {

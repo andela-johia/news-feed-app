@@ -31,9 +31,6 @@ class SourceStore extends EventEmitter {
    *
    * @memberof FeedStore
    */
-  fetchArticles() {
-    return this.articles;
-  }
 
   /**
    * This function listens for payLoad from the action and stores them

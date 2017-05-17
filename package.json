@@ -8,7 +8,7 @@
     "prod": "./node_modules/.bin/webpack --env.production",
     "watch": "webpack -d --watch",
     "build": "webpack",
-    "test": "nyc --reporter=html --reporter=text mocha --compilers js:babel-register  app/Tests/*.spec.js",
+    "test": "nyc --reporter=html --reporter=text mocha --compilers js:babel-register  app/Tests/**/*.spec.js",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "start": "node server.js"
   },

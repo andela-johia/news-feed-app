@@ -46,6 +46,7 @@ export default class Headlines extends React.Component {
     };
     const sourceName = this.state.sourceId;
     const newsName = sourceName.toUpperCase().replace('-', ' ');
+    console.log(this.state.articles);
 
     return (
       <div>
@@ -64,16 +65,16 @@ export default class Headlines extends React.Component {
           <div className="row">
             {this.state.articles.map(item => (
               <div className="col m6" key={item.title}>
-                <div className="card small grey lighten-4">
+                <div className="card large grey lighten-4">
                   <div className="card-image">
                     <img src={item.urlToImage} alt={item.title} />
-                    <span className="card-title">{item.title}</span>
-                  </div>
-                  <div className="card-content">
-                    <p>{item.description}</p><br />{'Published at:  '}{item.publishedAt}
-                  </div>
-                  <div className="card-action">
-                    <a href={item.url} target={'#'}>{'Read More'}</a>
+                    <div className="card-content">
+                      <span className="card-title">{item.title}</span>
+                      <p>{item.description}</p><br />{'Published at:  '}{item.publishedAt}
+                    </div>
+                    <div className="card-action">
+                      <a href={item.url} target={'#'}>{'Read More'}</a>
+                    </div>
                   </div>
                 </div>
               </div>
