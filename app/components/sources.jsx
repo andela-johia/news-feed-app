@@ -30,7 +30,6 @@ export default class Sources extends React.Component {
   }
 
   componentWillUnmount() {
-    ActionSource.getSources();
     SourceStore.removeListener('change', this.updateNewsFeed);
   }
 
@@ -57,6 +56,9 @@ export default class Sources extends React.Component {
   }
 
   render() {
+    const heightStyle = {
+      height: 180,
+    };
     const searchString = this.state.searchString.trim().toLowerCase();
     let sources = this.state.sources;
 
@@ -70,12 +72,12 @@ export default class Sources extends React.Component {
     const NewsSource = sources.map((item) => {
       const sortsArray = item.sortBysAvailable;
       const links = sortsArray.map(link => (
-        <a key={link} href={`#/sources/${item.id}/${link}`}>{link}</a>
+        <a key={link} href={`#/sources/${item.id}/${link}`}>{link}{' News'}</a>
       ));
-      return (<div className="col s12 m4" key={item.name}>
-        <div className="card small grey lighten-4">
-          <span className="card-title">{item.name}</span>
+      return (<div className="col s12 m6" key={item.name}>
+        <div className="card small grey lighten-4" style={heightStyle}>
           <div className="card-content">
+            <span className="card-title">{item.name}</span>
             <p>{item.description}</p>
           </div>
           <div className="card-action">

@@ -22,7 +22,6 @@ export default class Headlines extends React.Component {
     };
 
     this.updateArticles = this.updateArticles.bind(this);
-    // this.updateSortByAvailables = this.updateSortByAvailables.bind(this);
   }
 
   componentDidMount() {

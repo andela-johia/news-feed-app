@@ -8,7 +8,7 @@ import axios from 'axios';
    * @returns - returns different news sources in a JSON object
    */
 const getNewsFeed = () => {
-  const encodedURI = 'https://newsapi.org/v1/sources';
+  const encodedURI = 'https://newsapi.org/v1/sources?language=en';
   return axios.get(encodedURI)
     .then((res) => {
       return res.data.sources;
