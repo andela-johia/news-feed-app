@@ -24,15 +24,11 @@ describe('<HeadLines />', () => {
   it('Should have an initial sourceId state', () => {
     expect(wrapper.state().sourceId).to.be.a('string');
   });
-  it('Should have a button to sort between top and latest', () => {
-    expect(wrapper.find('button')).to.have.length(1);
-  });
+
   it('Renders the headline component', () => {
     expect(wrapper.find('.container')).to.be.defined;
   });
-  // it('Should have a did mount function', () => {
-  //   wrapper.instance().componentWillMount();
-  // });
+  
   it('Should have a function that updates the articles', () => {
     wrapper.instance().updateArticles;
   });
