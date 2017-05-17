@@ -87,7 +87,7 @@ export default class Sources extends React.Component {
     return (
       <div>
         <Signout />
-        <h4>{'News Source'}</h4><br /><br />
+        <br /><br />
         <div className="row">
           <div className="input-field col s12">
             <input
