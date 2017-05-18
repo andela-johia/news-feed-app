@@ -35,5 +35,15 @@ describe('<HeadLines />', () => {
   it('Should have function that handles the sortBy onclick event', () => {
     expect(wrapper.find('#sort')).to.be.defined;
   });
+  it('Should have an initial state for articles', () => {
+    const wrapper = mount(<Headlines {...props} />);
+    expect(wrapper.state().articles).to.be.defined;
+  });
+  it('Should have render the component on the  DOM', () => {
+    const wrapper = mount(<Headlines {...props} />);
+    expect(wrapper.setState().articles).to.be.defined;
+
+  });
 });
+
 

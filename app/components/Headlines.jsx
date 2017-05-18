@@ -24,11 +24,23 @@ export default class Headlines extends React.Component {
     this.updateArticles = this.updateArticles.bind(this);
   }
 
+  /**
+   *
+   *
+   *
+   * @memberof Headlines
+   */
   componentDidMount() {
     actionSource.getNewsHeadlines(this.state.sourceId, this.state.sortBy);
     HeadlineStore.on('change', this.updateArticles);
   }
 
+  /**
+   *
+   *
+   *
+   * @memberof Headlines
+   */
   componentWillUnmount() {
     HeadlineStore.removeListener('change', this.updateArticles);
   }
@@ -44,10 +56,12 @@ export default class Headlines extends React.Component {
     const headerStyle = {
       marginLeft: 300,
     };
+    const cardStyle = {
+      height: 250,
+    };
     const sourceName = this.state.sourceId;
     const newsName = sourceName.toUpperCase().replace('-', ' ');
     console.log(this.state.articles);
-
     return (
       <div>
         <Signout />
@@ -67,14 +81,14 @@ export default class Headlines extends React.Component {
               <div className="col m6" key={item.title}>
                 <div className="card large grey lighten-4">
                   <div className="card-image">
-                    <img src={item.urlToImage} alt={item.title} />
-                    <div className="card-content">
-                      <span className="card-title">{item.title}</span>
-                      <p>{item.description}</p><br />{'Published at:  '}{item.publishedAt}
-                    </div>
-                    <div className="card-action">
-                      <a href={item.url} target={'#'}>{'Read More'}</a>
-                    </div>
+                    <img src={item.urlToImage} alt={item.title} style={cardStyle} />
+                  </div>
+                  <div className="card-content">
+                    <span className="card-title">{item.title}</span>
+                    <p>{item.description}</p>
+                  </div>
+                  <div className="card-action">
+                    <a href={item.url} target={'#'}>{'Read More'}</a>
                   </div>
                 </div>
               </div>

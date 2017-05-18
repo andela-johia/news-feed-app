@@ -24,11 +24,23 @@ export default class Sources extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  /**
+   *
+   *
+   *
+   * @memberof Sources
+   */
   componentDidMount() {
     ActionSource.getSources();
     SourceStore.on('change', this.updateNewsFeed);
   }
 
+  /**
+   * 
+   *
+   *
+   * @memberof Sources
+   */
   componentWillUnmount() {
     SourceStore.removeListener('change', this.updateNewsFeed);
   }
@@ -47,7 +59,7 @@ export default class Sources extends React.Component {
   /**
    * This function sets the change of state of the search value in real time.
    *
-   * @param {any} event - this param listens for any change in event upon searching.
+   * @param {string} event - this param listens for any change in event upon searching.
    *
    * @memberof Sources
    */
@@ -59,12 +71,19 @@ export default class Sources extends React.Component {
     const heightStyle = {
       height: 180,
     };
+    const searchBar = {
+      width: '50%',
+      marginLeft: 300,
+    };
     const searchString = this.state.searchString.trim().toLowerCase();
     let sources = this.state.sources;
 
 
     if (searchString.length > 0) { // shorten the function
-      sources = sources.filter(item => item.name.trim().toLowerCase().match(searchString));
+      sources = sources.filter((item) => {
+        const itemName = item.name.trim().toLowerCase();
+        return itemName.match(searchString);
+      });
     }
     if (typeof (searchString) === 'number') {
       return 'Error Invalid Input';
@@ -96,6 +115,7 @@ export default class Sources extends React.Component {
               value={this.state.searchString}
               onChange={this.handleChange} type="text"
               placeholder="Search Source"
+              style={searchBar}
             />
           </div>
         </div>

@@ -19,6 +19,7 @@ export default class Signout extends React.Component {
   render() {
     const anchorStyle = {
       textDecoration: 'none',
+      marginRight: 50,
     };
     return (
       <div>

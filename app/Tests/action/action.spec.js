@@ -27,19 +27,16 @@ describe('getSources action method using Promises', () => {
 
 describe('Get news headline action method with promises', () => {
   it('should have the dispatcher called', () => {
-    Actions.getNewsHeadlines();
+    Actions.getNewsHeadlines;
       expect(dispatcher).to.have.been.called;
     });
 
   it('Should get the news articles when called', () => {
-    Actions.newsHeadlines;
-    setTimeout(() => {
+    Actions.getNewsHeadlines;
       expect(dispatcher, {
         type: 'GET_ARTICLES',
-        data: articles,
+        data: 'articles',
       });
-      done();
-    }, 0);
   });
 });
 

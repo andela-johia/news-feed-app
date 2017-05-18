@@ -1,21 +1,12 @@
 import React from 'react';
 import { expect } from 'chai';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 
 import Sources from '../../components/sources';
 import Signout from '../../components/Signout';
 
 
 describe('<Sources/>', () => {
-  const props = {
-    sources: [{
-      id: 'abc-news-au',
-      description: 'We bring the best news from Australia',
-      name: 'ABC-NEWS-AUr'
-    }
-
-    ]
-  }
   const wrapper = shallow(<Sources />);
   it('Should have the signout component', () => {
     expect(wrapper.find(Signout)).to.have.length(1);
@@ -38,6 +29,14 @@ describe('<Sources/>', () => {
   });
   it('should have a textfield in the component for searching', () => {
     expect(wrapper.find('.input-field')).to.be.defined;
+  });
+  it('Should have an initial state for articles', () => {
+    const wrapper = mount(<Sources/>);
+    expect(wrapper.state().sources).to.be.defined;
+  });
+  it('Should have render the component on the  DOM', () => {
+    const wrapper = mount(<Sources />);
+    expect(wrapper.setState().sources).to.be.defined;
   });
 
 });
