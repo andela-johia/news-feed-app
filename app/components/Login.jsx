@@ -13,7 +13,7 @@ export default class Login extends React.Component {
   /**
    *This function stores the user profile of a google user to local storage.
    *
-   * @param {any} response - this param gets the google user profile upon sign in
+   * @param {string} response - this param gets the google user profile upon sign in
    *
    * @memberof Login
    */

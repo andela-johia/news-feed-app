@@ -3,4 +3,4 @@ public/bundle.js
 coverage/
 .nyc_output/
 .env
-.npmDebug.log
+npm-debug.log

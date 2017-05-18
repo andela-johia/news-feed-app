@@ -13,7 +13,7 @@ class SourceStore extends EventEmitter {
 
   /**
    * stores and returns a change in the news sources data from the action upon
-   *  mounting in the source component.
+   * mounting in the source component.
    *
    * @returns
    *
@@ -26,7 +26,6 @@ class SourceStore extends EventEmitter {
   /**
    * Returns a change in the news article data upon mounting in the headline
    *  component.
-   *
    * @returns
    *
    * @memberof FeedStore
@@ -36,7 +35,7 @@ class SourceStore extends EventEmitter {
    * This function listens for payLoad from the action and stores them
    * according to their action type.
    *
-   * @param {any} action - The payload delivered by the dispatcher to the store.
+   * @param {object} action - The payload delivered by the dispatcher to the store.
    *
    * @memberof FeedStore
    */

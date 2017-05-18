@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 
+const baseUrl = 'https://newsapi.org/v1/';
   /**
    *Gets the news sources from the Newsapi url and returns the JSON data as a promise value
    *
@@ -8,7 +9,7 @@ import axios from 'axios';
    * @returns - returns different news sources in a JSON object
    */
 const getNewsFeed = () => {
-  const encodedURI = 'https://newsapi.org/v1/sources?language=en';
+  const encodedURI = `${baseUrl}sources?language=en`;
   return axios.get(encodedURI)
     .then((res) => {
       return res.data.sources;
@@ -25,7 +26,7 @@ const getNewsFeed = () => {
    * @returns
    */
 const getHeadLines = (source, sortBy) => {
-  const url = `https://newsapi.org/v1/articles?source=${source}&sortBy=${sortBy}&apiKey=${process.env.API_KEY}`;
+  const url = `${baseUrl}articles?source=${source}&sortBy=${sortBy}&apiKey=${process.env.API_KEY}`;
   return axios.get(url)
     .then((res) => {
       return res.data.articles;

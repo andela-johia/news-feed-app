@@ -1,6 +1,12 @@
 import { EventEmitter } from 'events';
 import Dispatcher from '../dispatcher/dispatcher';
 
+/**
+ *Listens and stores data from the action according to their action type
+ *
+ * @class HeadlineStore
+ * @extends {EventEmitter}
+ */
 class HeadlineStore extends EventEmitter {
   constructor() {
     super();
@@ -11,13 +17,19 @@ class HeadlineStore extends EventEmitter {
    *  component.
    *
    * @returns
-   *
    * @memberof FeedStore
 **/
   fetchArticles() {
     return this.articles;
   }
 
+  /**
+   * This function listens for payLoad from the action and stores them
+   * according to their action type.
+   * @param {object} action
+   *
+   * @memberof HeadlineStore
+   */
   handleArticles(action) {
     if (action.type === 'GET_ARTICLES') {
       this.articles = action.payLoad;

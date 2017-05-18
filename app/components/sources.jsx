@@ -7,7 +7,6 @@ import Signout from './Signout';
 /**
  *This component renders the news sources obtained from the news Api.
   A list of news sources is rendered in this component.
- *
  * @export
  * @class Sources
  * @extends {React.Component}
@@ -25,9 +24,9 @@ export default class Sources extends React.Component {
   }
 
   /**
-   *
-   *
-   *
+   *This function mounts the getSources action function when it is about
+   *to be rendered on the DOM. Props are passed to the action method and an API call is made.
+   *The store updates the state of the sources prop when the componentDidMount function is fired.
    * @memberof Sources
    */
   componentDidMount() {
@@ -36,8 +35,8 @@ export default class Sources extends React.Component {
   }
 
   /**
-   *
-   *
+   *This function unmounts the rendered component using the removeListener method and updates the
+   *state of the sources prop.
    *
    * @memberof Sources
    */
@@ -46,9 +45,8 @@ export default class Sources extends React.Component {
   }
 
   /**
-   * Returns a new state of the sources upon rendering
-   *
-   *
+   * Returns a new state of the sources when the store has been updated upon rendering of the
+   *component.
    * @memberof Sources
    */
   updateNewsFeed() {

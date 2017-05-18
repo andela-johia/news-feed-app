@@ -25,9 +25,9 @@ export default class Headlines extends React.Component {
   }
 
   /**
-   *
-   *
-   *
+   * This function mounts the getNewsHeadlines action function when it is about
+   *to be rendered on the DOM. Props are passed to the action method and an API call is made.
+   *The store updates the state of the article prop when the componentDidMount function is fired.
    * @memberof Headlines
    */
   componentDidMount() {
@@ -37,14 +37,19 @@ export default class Headlines extends React.Component {
 
   /**
    *
-   *
-   *
+   *This function unmounts the rendered component using the removeListener method and updates the
+   *state of articles.
    * @memberof Headlines
    */
   componentWillUnmount() {
     HeadlineStore.removeListener('change', this.updateArticles);
   }
 
+  /**
+   *This function is reponsible for updating the state of the article prop when the component is
+   rendered.
+   * @memberof Headlines
+   */
   updateArticles() {
     this.setState({
       articles: HeadlineStore.fetchArticles(),

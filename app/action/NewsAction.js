@@ -4,7 +4,6 @@ import * as api from '../components/Api';
 
 /**
  * This function get the news source from the api function a dispatcher dispatches to the store.
- *
  * @export
  */
 const getSources = () => {
