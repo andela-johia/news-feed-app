@@ -11,6 +11,13 @@ import React from 'react';
 export default class Signout extends React.Component {
 
 
+  /**
+   *Thi function is responsible for logging out the user from the application. When the onClick
+   *button is fired. the userprofile stored in localStorage is deleted and the user is redirected
+   to the landing page.
+   * @static
+   * @memberof Signout
+   */
   static updateLogout() {
     localStorage.removeItem('userProfile');
     window.location = '/';
@@ -19,6 +26,7 @@ export default class Signout extends React.Component {
   render() {
     const anchorStyle = {
       textDecoration: 'none',
+      marginRight: 50,
     };
     return (
       <div>

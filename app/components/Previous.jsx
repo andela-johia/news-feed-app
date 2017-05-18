@@ -2,13 +2,18 @@ import React from 'react';
 
 /**
  *This component gives the user the feature to go back to previous page
- *
  * @export
  * @class Previous
  * @extends {React.Component}
  */
 export default class Previous extends React.Component {
 
+  /**
+   * The function is responsible for switching routes between the source component and headline
+   *component. On click of the back button the function is fired.
+   * @static
+   * @memberof Previous
+   */
   static updatePrevious() {
     window.location = '#/sources';
   }
@@ -17,7 +22,7 @@ export default class Previous extends React.Component {
       <button
         className="waves-effect waves-light btn"
         onClick={Previous.updatePrevious}
-      >Previous Page<i className="material-icons left" /></button>
+      ><i className="fa fa-arrow-left" aria-hidden="true" />{'  Go Back'}</button>
     );
   }
 }

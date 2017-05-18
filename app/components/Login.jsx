@@ -13,7 +13,7 @@ export default class Login extends React.Component {
   /**
    *This function stores the user profile of a google user to local storage.
    *
-   * @param {any} response - this param gets the google user profile upon sign in
+   * @param {string} response - this param gets the google user profile upon sign in
    *
    * @memberof Login
    */
@@ -36,7 +36,7 @@ export default class Login extends React.Component {
       marginTop: '150px',
       marginLeft: '450px',
     };
-    const googleId = '116314004036-ogkinrg0ms586tvar5c56dam8a8gfrcn.apps.googleusercontent.com';
+    const googleId = process.env.GOOGLE_ID;
     return (
       <div>
         <div>

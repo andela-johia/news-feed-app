@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FeedStore from '../stores/NewsStore';
-import * as ActionSource from '../action/NewsAction';
+import HeadlineStore from '../stores/HeadlineStore';
+import * as actionSource from '../action/NewsAction';
 import Signout from './Signout';
 import Previous from './Previous';
 
@@ -22,80 +22,60 @@ export default class Headlines extends React.Component {
     };
 
     this.updateArticles = this.updateArticles.bind(this);
-    this.updateSortByAvailables = this.updateSortByAvailables.bind(this);
-  }
-
-  componentDidMount() {
-    ActionSource.newsHeadlines(this.state.sourceId, '');
-    FeedStore.on('change', this.updateArticles);
-  }
-
-  componentWillUnmount() {
-    ActionSource.newsHeadlines(this.state.sourceId, '');
-    FeedStore.removeListener('change', this.updateArticles);
-  }
-
-  updateArticles() {
-    this.setState({
-      articles: FeedStore.fetchArticles(),
-    });
   }
 
   /**
-   * This function changes the state of the sortby params on clicking.
-   * The headline component is unmounted and remounted during a change in event.
-   *
-   * @param {any} event - This event retrieves the value of sortBy params
-   * when clicked inorder to obtain news articles for that particular param
-   *
+   * This function mounts the getNewsHeadlines action function when it is about
+   *to be rendered on the DOM. Props are passed to the action method and an API call is made.
+   *The store updates the state of the article prop when the componentDidMount function is fired.
    * @memberof Headlines
    */
-  updateSortByAvailables(event) {
-    const sortStatus = event.target.value;
-    if (sortStatus === 'top') {
-      ActionSource.newsHeadlines(this.state.sourceId, sortStatus);
-      FeedStore.on('change', this.updateArticles);
-    } else if (sortStatus === 'latest') {
-      ActionSource.newsHeadlines(this.state.sourceId, sortStatus);
-      FeedStore.on('change', this.updateArticles);
-    }
-
-    event.preventDefault();
+  componentDidMount() {
+    actionSource.getNewsHeadlines(this.state.sourceId, this.state.sortBy);
+    HeadlineStore.on('change', this.updateArticles);
   }
-  render() {
-    const buttonStyle = {
-      marginRight: 20,
 
-    };
+  /**
+   *
+   *This function unmounts the rendered component using the removeListener method and updates the
+   *state of articles.
+   * @memberof Headlines
+   */
+  componentWillUnmount() {
+    HeadlineStore.removeListener('change', this.updateArticles);
+  }
+
+  /**
+   *This function is reponsible for updating the state of the article prop when the component is
+   rendered.
+   * @memberof Headlines
+   */
+  updateArticles() {
+    this.setState({
+      articles: HeadlineStore.fetchArticles(),
+    });
+  }
+
+  render() {
+    const sortBy = this.state.sortBy.toUpperCase();
     const headerStyle = {
-      marginLeft: 450,
+      marginLeft: 300,
     };
-    const buttonAlign = {
-      marginRight: '50px',
-      marginLeft: '35px',
+    const cardStyle = {
+      height: 250,
     };
     const sourceName = this.state.sourceId;
     const newsName = sourceName.toUpperCase().replace('-', ' ');
-    const links = this.state.sortBy.split('+').map(link => (
-      <button
-        key={link}
-        id="sort" className="btn waves-effect waves-light" value={link}
-        onClick={this.updateSortByAvailables} style={buttonStyle}
-      >{link}</button>
-    ));
-
     return (
       <div>
         <Signout />
 
-        <br /><h4 style={headerStyle}>{'News from '}{newsName}</h4>
+        <br /><h4 style={headerStyle}>{sortBy}{' News from '}{newsName}</h4>
         <br /> <br />
         <div className="container">
           <div className="row">
             <div className="col m4">
               <Previous /></div>
-            <div className="col m4" style={buttonAlign}>
-              {links}</div>
           </div>
         </div>
 
@@ -103,13 +83,13 @@ export default class Headlines extends React.Component {
           <div className="row">
             {this.state.articles.map(item => (
               <div className="col m6" key={item.title}>
-                <div className="card small grey lighten-4">
+                <div className="card large grey lighten-4">
                   <div className="card-image">
-                    <img src={item.urlToImage} alt={item.title} />
-                    <span className="card-title">{item.title}</span>
+                    <img src={item.urlToImage} alt={item.title} style={cardStyle} />
                   </div>
                   <div className="card-content">
-                    <p>{item.description}</p><br />{'Published at:  '}{item.publishedAt}
+                    <span className="card-title">{item.title}</span>
+                    <p>{item.description}</p>
                   </div>
                   <div className="card-action">
                     <a href={item.url} target={'#'}>{'Read More'}</a>

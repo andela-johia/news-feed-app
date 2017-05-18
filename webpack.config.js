@@ -1,5 +1,6 @@
 let webpack = require('webpack');
 let path = require('path');
+const env = require('dotenv').config();
 
 //var BUILD_DIR = path.resolve(__dirname, 'dist');
 
@@ -40,7 +41,17 @@ let config = {
       }
 
     ]
-  }
+  },
+  plugins: [
+   new webpack.DefinePlugin({
+      'process': {
+        'env': {
+          'API_KEY': JSON.stringify(process.env.API_KEY),
+          'GOOGLE_ID': JSON.stringify(process.env.GOOGLE_ID)
+        }
+      }
+    })
+  ],
 
 
 };

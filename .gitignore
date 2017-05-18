@@ -2,3 +2,5 @@ node_modules/
 public/bundle.js
 coverage/
 .nyc_output/
+.env
+npm-debug.log
