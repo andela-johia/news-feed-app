@@ -23,7 +23,7 @@ const getNewsFeed = () => {
    * @export
    * @param {any} source - source-id for a particular news source
    * @param {any} sortBy - sortBy parameter.
-   * @returns
+   * @returns - returns an array of articles for each news source
    */
 const getHeadLines = (source, sortBy) => {
   const url = `${baseUrl}articles?source=${source}&sortBy=${sortBy}&apiKey=${process.env.API_KEY}`;

@@ -26,7 +26,7 @@ class SourceStore extends EventEmitter {
   /**
    * Returns a change in the news article data upon mounting in the headline
    *  component.
-   * @returns
+   * @returns - Updated articles prop.
    *
    * @memberof FeedStore
    */

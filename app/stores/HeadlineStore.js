@@ -16,7 +16,7 @@ class HeadlineStore extends EventEmitter {
    * Returns a change in the news article data upon mounting in the headline
    *  component.
    *
-   * @returns
+   * @returns - updated articles props
    * @memberof FeedStore
 **/
   fetchArticles() {
