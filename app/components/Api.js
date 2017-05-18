@@ -21,8 +21,8 @@ const getNewsFeed = () => {
    *Gets the news articles for a particular source-id and returns it as a promise value.
    *
    * @export
-   * @param {any} source - source-id for a particular news source
-   * @param {any} sortBy - sortBy parameter.
+   * @param {string} source - source-id for a particular news source
+   * @param {array} sortBy - sortBy parameter.
    * @returns - returns an array of articles for each news source
    */
 const getHeadLines = (source, sortBy) => {
