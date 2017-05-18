@@ -36,7 +36,7 @@ export default class Sources extends React.Component {
   }
 
   /**
-   * 
+   *
    *
    *
    * @memberof Sources

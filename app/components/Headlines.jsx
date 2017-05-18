@@ -61,7 +61,6 @@ export default class Headlines extends React.Component {
     };
     const sourceName = this.state.sourceId;
     const newsName = sourceName.toUpperCase().replace('-', ' ');
-    console.log(this.state.articles);
     return (
       <div>
         <Signout />
