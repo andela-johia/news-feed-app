@@ -12,12 +12,12 @@ const dispatcher = sinon.spy(Dispatcher, 'dispatch');
 
 describe('getSources action method using Promises', () => {
   it('should have the dispatcher called ', () => {
-    Actions.getSources;
+    Actions.getSources();
       expect(dispatcher).to.have.been.called;
   });
 
   it('Should get the news source event when called', () => {
-    Actions.getSources;
+    Actions.getSources();
       expect(dispatcher, {
         type: 'GET_SOURCES',
         data: 'result',
@@ -27,12 +27,12 @@ describe('getSources action method using Promises', () => {
 
 describe('Get news headline action method with promises', () => {
   it('should have the dispatcher called', () => {
-    Actions.getNewsHeadlines;
+    Actions.getNewsHeadlines();
       expect(dispatcher).to.have.been.called;
     });
 
   it('Should get the news articles when called', () => {
-    Actions.getNewsHeadlines;
+    Actions.getNewsHeadlines();
       expect(dispatcher, {
         type: 'GET_ARTICLES',
         data: 'articles',
