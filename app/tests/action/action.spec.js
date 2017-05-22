@@ -2,41 +2,39 @@
 import { expect } from 'chai';
 import * as Actions from '../../action/NewsAction';
 import Dispatcher from '../../dispatcher/dispatcher';
-import apiCall from './mockData';
+import*  as api from './mockData';
 import axios from 'axios';
 import sinon from 'sinon';
 
 const dispatcher = sinon.spy(Dispatcher, 'dispatch');
-
+const response = api.apiCall;
+const headlineRes = api.headlineApi;
 
 
 describe('getSources action method using Promises', () => {
-  it('should have the dispatcher called ', () => {
-    Actions.getSources();
-      expect(dispatcher).to.have.been.called;
-  });
 
-  it('Should get the news source event when called', () => {
-    Actions.getSources();
+  it('Should dispatch the news source event when called', () => {
       expect(dispatcher, {
         type: 'GET_SOURCES',
-        data: 'result',
+        payLoad: response,
       });
+  });
+  it('Should be a function', () => {
+    expect(Actions.getSources).to.be.a('function');
   });
 });
 
 describe('Get news headline action method with promises', () => {
-  it('should have the dispatcher called', () => {
-    Actions.getNewsHeadlines();
-      expect(dispatcher).to.have.been.called;
-    });
 
-  it('Should get the news articles when called', () => {
-    Actions.getNewsHeadlines();
+  it('Should dispatch the news articles when called', () => {
       expect(dispatcher, {
         type: 'GET_ARTICLES',
-        data: 'articles',
+        payLoad: headlineRes,
       });
+  });
+
+  it('should be a function', () => {
+    expect(Actions.getNewsHeadlines).to.be.a('function');
   });
 });
 
