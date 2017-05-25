@@ -1,5 +1,6 @@
 import React from 'react';
 import GoogleLogin from 'react-google-login';
+import { withRouter } from 'react-router-dom';
 
 /**
  * Renders a google signin feature for the news feed application
@@ -8,23 +9,28 @@ import GoogleLogin from 'react-google-login';
  * @class Login
  * @extends {React.Component}
  */
-export default class Login extends React.Component {
+class Login extends React.Component {
+  constructor(props) {
+    super(props);
+    this.responseGoogle = this.responseGoogle.bind(this);
+  }
 
   /**
    *This function stores the user profile of a google user to local storage.
    *
-   * @param {string} response - this param gets the google user profile upon sign in
+   * @param {string} response - this param gets the google user profile
+   * upon sign in
    *
    * @memberof Login
    */
-  static responseGoogle(response) {
+  responseGoogle(response) {
     const loginProfile = response.getBasicProfile();
     const userProfile = {};
     userProfile.name = loginProfile.getName();
     userProfile.email = loginProfile.getEmail();
     userProfile.idToken = response.googleId;
     localStorage.setItem('userProfile', JSON.stringify(userProfile));
-    window.location = '#/sources';
+    this.props.history.push('/sources');
   }
 
 
@@ -57,9 +63,10 @@ export default class Login extends React.Component {
                   <GoogleLogin
                     className="waves-effect waves-light btn"
                     clientId={googleId}
-                    onSuccess={Login.responseGoogle}
-                    onFailure={Login.responseGoogle}
-                  >{'Sign In With   '}<i className="fa fa-google-plus" /></GoogleLogin>
+                    onSuccess={this.responseGoogle}
+                    onFailure={this.responseGoogle}
+                  >{'Sign In With   '}<i className="fa fa-google-plus" />
+                  </GoogleLogin>
                 </div>
               </div>
             </div>
@@ -69,3 +76,4 @@ export default class Login extends React.Component {
     );
   }
 }
+export default withRouter(Login);

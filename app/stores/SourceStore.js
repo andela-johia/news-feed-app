@@ -35,7 +35,8 @@ class SourceStore extends EventEmitter {
    * This function listens for payLoad from the action and stores them
    * according to their action type.
    *
-   * @param {object} action - The payload delivered by the dispatcher to the store.
+   * @param {object} action - The payload delivered by the dispatcher to the
+   *  store.
    *
    * @memberof FeedStore
    */

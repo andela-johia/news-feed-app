@@ -7,7 +7,8 @@ import Previous from './Previous';
 
 /**
  *This component renders the news articles for different news sources.
- Using the source id and sortby parameter the articles are retrieved by making an api call.
+ Using the source id and sortby parameter the articles are retrieved by making
+  an api call.
  *
  * @class Headlines
  * @extends {React.Component}
@@ -26,8 +27,10 @@ export default class Headlines extends React.Component {
 
   /**
    * This function mounts the getNewsHeadlines action function when it is about
-   *to be rendered on the DOM. Props are passed to the action method and an API call is made.
-   *The store updates the state of the article prop when the componentDidMount function is fired.
+   *to be rendered on the DOM. Props are passed to the action method and an
+   API call is made.
+   *The store updates the state of the article prop when the componentDidMount
+   function is fired.
    * @memberof Headlines
    */
   componentDidMount() {
@@ -37,7 +40,8 @@ export default class Headlines extends React.Component {
 
   /**
    *
-   *This function unmounts the rendered component using the removeListener method and updates the
+   *This function unmounts the rendered component using the removeListener
+   method and updates the
    *state of articles.
    * @memberof Headlines
    */
@@ -46,7 +50,8 @@ export default class Headlines extends React.Component {
   }
 
   /**
-   *This function is reponsible for updating the state of the article prop when the component is
+   *This function is reponsible for updating the state of the article prop when
+   the component is
    rendered.
    * @memberof Headlines
    */
@@ -66,7 +71,7 @@ export default class Headlines extends React.Component {
     };
     const sourceName = this.state.sourceId;
     const newsName = sourceName.toUpperCase().replace('-', ' ');
-    console.log(this.state.articles);
+
     return (
       <div>
         <Signout />
@@ -86,7 +91,9 @@ export default class Headlines extends React.Component {
               <div className="col m6" key={item.title}>
                 <div className="card large grey lighten-4">
                   <div className="card-image">
-                    <img src={item.urlToImage} alt={item.title} style={cardStyle} />
+                    <img
+src={item.urlToImage} alt={item.title}
+                      style={cardStyle} />
                   </div>
                   <div className="card-content">
                     <span className="card-title">{item.title}</span>

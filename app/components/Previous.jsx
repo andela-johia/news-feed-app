@@ -9,7 +9,8 @@ import React from 'react';
 export default class Previous extends React.Component {
 
   /**
-   * The function is responsible for switching routes between the source component and headline
+   * The function is responsible for switching routes between the source
+   *  component and headline
    *component. On click of the back button the function is fired.
    * @static
    * @memberof Previous
@@ -22,7 +23,8 @@ export default class Previous extends React.Component {
       <button
         className="waves-effect waves-light btn"
         onClick={Previous.updatePrevious}
-      ><i className="fa fa-arrow-left" aria-hidden="true" />{'  Go Back'}</button>
+      ><i className="fa fa-arrow-left" aria-hidden="true" />{'  Go Back'}
+      </button>
     );
   }
 }

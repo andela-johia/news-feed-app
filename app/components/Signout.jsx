@@ -1,4 +1,7 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+import history from './History';
+
 
 /**
  *-This class signs out a user profile from the News feed app and deletes
@@ -8,19 +11,24 @@ import React from 'react';
  * @class Signout
  * @extends {React.Component}
  */
-export default class Signout extends React.Component {
-
+class Signout extends React.Component {
+  constructor(props) {
+    super(props);
+    this.updateLogout = this.updateLogout.bind(this);
+  }
 
   /**
-   *Thi function is responsible for logging out the user from the application. When the onClick
-   *button is fired. the userprofile stored in localStorage is deleted and the user is redirected
+   *This function is responsible for logging out the user from the application.
+   When the onClick
+   *button is fired. the userprofile stored in localStorage is deleted and
+   the user is redirected
    to the landing page.
    * @static
    * @memberof Signout
    */
-  static updateLogout() {
+  updateLogout() {
     localStorage.removeItem('userProfile');
-    window.location = '/';
+    this.props.history.push('/');
   }
 
   render() {
@@ -34,7 +42,10 @@ export default class Signout extends React.Component {
           <div className="nav-wrapper" >
             <div className="brand-logo center">News Central</div>
             <ul id="nav-mobile" className="right hide-on-med-and-down">
-              <li><button className="waves-effect waves-light btn red" onClick={Signout.updateLogout} style={anchorStyle}>{'Logout'}</button></li>
+              <li><button
+className="waves-effect waves-light btn red"
+                onClick={this.updateLogout} style={anchorStyle}>{'Logout'}
+              </button></li>
             </ul>
           </div>
         </nav>
@@ -42,3 +53,5 @@ export default class Signout extends React.Component {
     );
   }
 }
+export default withRouter(Signout);
+

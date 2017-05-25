@@ -25,8 +25,10 @@ export default class Sources extends React.Component {
 
   /**
    *This function mounts the getSources action function when it is about
-   *to be rendered on the DOM. Props are passed to the action method and an API call is made.
-   *The store updates the state of the sources prop when the componentDidMount function is fired.
+   *to be rendered on the DOM. Props are passed to the action method and
+   an API call is made.
+   *The store updates the state of the sources prop when the componentDidMount
+    function is fired.
    * @memberof Sources
    */
   componentDidMount() {
@@ -35,7 +37,8 @@ export default class Sources extends React.Component {
   }
 
   /**
-   *This function unmounts the rendered component using the removeListener method and updates the
+   *This function unmounts the rendered component using the removeListener
+   method and updates the
    *state of the sources prop.
    *
    * @memberof Sources
@@ -45,7 +48,8 @@ export default class Sources extends React.Component {
   }
 
   /**
-   * Returns a new state of the sources when the store has been updated upon rendering of the
+   * Returns a new state of the sources when the store has been updated
+   * upon rendering of the
    *component.
    * @memberof Sources
    */
@@ -57,7 +61,8 @@ export default class Sources extends React.Component {
   /**
    * This function sets the change of state of the search value in real time.
    *
-   * @param {string} event - this param listens for any change in event upon searching.
+   * @param {string} event - this param listens for any change in event upon
+   *  searching.
    *
    * @memberof Sources
    */

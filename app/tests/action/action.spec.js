@@ -11,7 +11,7 @@ const response = api.apiCall;
 const headlineRes = api.headlineApi;
 
 
-describe('getSources action method using Promises', () => {
+describe('getSources', () => {
 
   it('Should dispatch the news source event when called', () => {
       expect(dispatcher, {
@@ -24,7 +24,7 @@ describe('getSources action method using Promises', () => {
   });
 });
 
-describe('Get news headline action method with promises', () => {
+describe('getNewsHeadline', () => {
 
   it('Should dispatch the news articles when called', () => {
       expect(dispatcher, {
