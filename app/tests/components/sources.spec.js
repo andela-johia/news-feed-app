@@ -30,13 +30,10 @@ describe('<Sources/>', () => {
   it('should have a textfield in the component for searching', () => {
     expect(wrapper.find('.input-field')).to.be.defined;
   });
-  it('Should have an initial state for articles', () => {
-    const wrapper = mount(<Sources/>);
-    expect(wrapper.state().sources).to.be.defined;
+  it('Should have its props rendered on the DOM', () => {
+    expect(wrapper.node.props.children).to.have.length(2);
   });
-  it('Should have render the component on the  DOM', () => {
-    const wrapper = mount(<Sources />);
-    expect(wrapper.setState().sources).to.be.defined;
+  it('Should have a <div> tag that renders the props', () => {
+    expect(wrapper.find('div').children()).to.be.Called;
   });
-
 });

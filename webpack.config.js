@@ -35,7 +35,7 @@ let config = {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader','resolve-url-loader', 'sass-loader?sourceMap'],
+          use: ['css-loader', 'sass-loader', 'resolve-url-loader', 'sass-loader?sourceMap'],
         }),
       },
       {
@@ -44,12 +44,12 @@ let config = {
       },
 
       {
-        test: /\.(png|woff|woff2|eot|ttf|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'url-loader?limit=10000&mimetype=application/font-woff',
+        test: /\.(png|woff|woff2|eot|ttf|svg|jpg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'url-loader?limit=1000000&mimetype=application/font-woff',
       },
       {
-        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        loader: 'file-loader'
+        test: /\.(ttf|eot|svg|png|jpe?g)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: 'file-loader?name=/[name].[ext]'
       },
       { test: /\.json$/, loader: 'json-loader' },
     ]

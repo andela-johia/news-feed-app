@@ -1,6 +1,6 @@
 import React from 'react';
 import SourceStore from '../stores/SourceStore';
-import * as ActionSource from '../action/NewsAction';
+import Action from '../action/NewsAction';
 import Signout from './Signout';
 
 
@@ -32,7 +32,7 @@ export default class Sources extends React.Component {
    * @memberof Sources
    */
   componentDidMount() {
-    ActionSource.getSources();
+    Action.getSources();
     SourceStore.on('change', this.updateNewsFeed);
   }
 
@@ -71,13 +71,6 @@ export default class Sources extends React.Component {
   }
 
   render() {
-    const heightStyle = {
-      height: 180,
-    };
-    const searchBar = {
-      width: '50%',
-      marginLeft: 300,
-    };
     const searchString = this.state.searchString.trim().toLowerCase();
     let sources = this.state.sources;
 
@@ -97,7 +90,7 @@ export default class Sources extends React.Component {
         <a key={link} href={`#/sources/${item.id}/${link}`}>{link}{' News'}</a>
       ));
       return (<div className="col s12 m6" key={item.name}>
-        <div className="card small grey lighten-4" style={heightStyle}>
+        <div className="card small grey lighten-4" id="heightStyle">
           <div className="card-content">
             <span className="card-title">{item.name}</span>
             <p>{item.description}</p>
@@ -111,21 +104,23 @@ export default class Sources extends React.Component {
     return (
       <div>
         <Signout />
-        <br /><br />
-        <div className="row">
-          <div className="input-field col s12">
-            <input
+        <div className="overlay">
+          <br /><br />
+          <div className="row">
+            <div className="input-field col s12">
+              <input
               value={this.state.searchString}
               onChange={this.handleChange} type="text"
               placeholder="Search Source"
-              style={searchBar}
+              id="searchBar"
             />
+            </div>
           </div>
-        </div>
-        <br /><br /><br />
-        <div className="container">
-          <div className="row">
-            {NewsSource}
+          <br /><br /><br />
+          <div className="container">
+            <div className="row">
+              {NewsSource}
+            </div>
           </div>
         </div>
       </div>

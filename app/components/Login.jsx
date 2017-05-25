@@ -45,6 +45,7 @@ class Login extends React.Component {
     const googleId = process.env.GOOGLE_ID;
     return (
       <div>
+        <div id="loginHeader">
         <div>
           <nav>
             <div className="nav-wrapper">
@@ -70,6 +71,7 @@ class Login extends React.Component {
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@ import Login from '../../components/Login';
 describe('<Login />', () => {
   const props = Login.responseGoogle;
   const wrapper = shallow(<Login  { ...props} />);
-  it('Should have a div that renders the sign in page',() => {
+  it('Should have a div that renders the sign in page', () => {
     expect(wrapper.find('row')).to.be.defined;
   });
   it('Should have a function that stores user profile', () => {
@@ -16,4 +16,7 @@ describe('<Login />', () => {
   it('Should have localStorage present for storing data', () => {
     expect(wrapper.find('localStorage.setItem()')).to.be.a('object');
   });
-})
+  it('Should have a <div> tag', () => {
+    expect(wrapper.find('div').children()).to.be.Called;
+  });
+});

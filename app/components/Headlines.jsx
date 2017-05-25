@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import HeadlineStore from '../stores/HeadlineStore';
-import * as actionSource from '../action/NewsAction';
+import Action from '../action/NewsAction';
 import Signout from './Signout';
 import Previous from './Previous';
 
@@ -34,7 +34,7 @@ export default class Headlines extends React.Component {
    * @memberof Headlines
    */
   componentDidMount() {
-    actionSource.getNewsHeadlines(this.state.sourceId, this.state.sortBy);
+    Action.getNewsHeadlines(this.state.sourceId, this.state.sortBy);
     HeadlineStore.on('change', this.updateArticles);
   }
 
@@ -63,20 +63,16 @@ export default class Headlines extends React.Component {
 
   render() {
     const sortBy = this.state.sortBy.toUpperCase();
-    const headerStyle = {
-      marginLeft: 300,
-    };
-    const cardStyle = {
-      height: 250,
-    };
+
     const sourceName = this.state.sourceId;
     const newsName = sourceName.toUpperCase().replace('-', ' ');
 
     return (
-      <div>
+      <div >
         <Signout />
+        <div id="loginHeader">
 
-        <br /><h4 style={headerStyle}>{sortBy}{' News from '}{newsName}</h4>
+        <br /><h4 id="headerStyle">{sortBy}{' News from '}{newsName}</h4>
         <br /> <br />
         <div className="container">
           <div className="row">
@@ -93,7 +89,7 @@ export default class Headlines extends React.Component {
                   <div className="card-image">
                     <img
 src={item.urlToImage} alt={item.title}
-                      style={cardStyle} />
+                      id="cardStyle" />
                   </div>
                   <div className="card-content">
                     <span className="card-title">{item.title}</span>
@@ -105,6 +101,7 @@ src={item.urlToImage} alt={item.title}
                 </div>
               </div>
             ))};
+          </div>
           </div>
         </div>
       </div>

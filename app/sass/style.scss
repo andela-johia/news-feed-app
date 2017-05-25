@@ -1,0 +1,23 @@
+@import '../../node_modules/materialize-css/sass/materialize.scss';
+
+body {
+    background:#F5F3EE;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    background-position: center;
+}
+
+#headerStyle {
+  margin-left: 300px;
+  }
+#cardStyle {
+  height: 250;
+}
+#heightStyle {
+  height: 180px;
+}
+#searchBar {
+   width: 50%;
+  margin-left: 300px;
+};

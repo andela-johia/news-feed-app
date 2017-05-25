@@ -1,40 +1,59 @@
 
 import { expect } from 'chai';
-import * as Actions from '../../action/NewsAction';
+import Action from '../../action/NewsAction';
 import Dispatcher from '../../dispatcher/dispatcher';
-import*  as api from './mockData';
-import axios from 'axios';
-import sinon from 'sinon';
+import mockNewsData from './mockData';
+import sinon, { mock } from 'sinon';
+import axios from './mockAxios';
 
-const dispatcher = sinon.spy(Dispatcher, 'dispatch');
-const response = api.apiCall;
-const headlineRes = api.headlineApi;
+describe('News Actions', () => {
+  let dispatcherSpy,
+    apiStub;
 
+  beforeEach(() => {
+    dispatcherSpy = sinon.spy(Dispatcher, 'dispatch');
+    apiStub = sinon.mock(axios, () => axios);
+  });
 
-describe('getSources', () => {
+  afterEach(() => {
+    dispatcherSpy.restore();
+    apiStub.restore();
+  });
 
-  it('Should dispatch the news source event when called', () => {
-      expect(dispatcher, {
-        type: 'GET_SOURCES',
-        payLoad: response,
+  describe('getSources', () => {
+
+    it('Should dispatch the news sources to the store', () => {
+      Action.getSources().then(() => {
+        expect(dispatcherSpy.apiStub).to.have.callCount(1);
+        expect(dispatcherSpy).to.have.been.calledWith(
+          type: 'GET_SOURCES',
+          payLoad: mockNewsData,
+        );
       });
+
   });
   it('Should be a function', () => {
-    expect(Actions.getSources).to.be.a('function');
+    expect(Action.getSources).to.be.a('function');
   });
 });
 
 describe('getNewsHeadline', () => {
 
   it('Should dispatch the news articles when called', () => {
-      expect(dispatcher, {
+    Action.getNewsHeadlines().then(() => {
+      expect(dispatcherSpy.apiStub).to.have.callCount(1);
+      expect(dispatcherSpy).to.have.been.calledWith(
         type: 'GET_ARTICLES',
         payLoad: headlineRes,
-      });
+      )
+    });
   });
 
   it('should be a function', () => {
-    expect(Actions.getNewsHeadlines).to.be.a('function');
+    expect(Action.getNewsHeadlines).to.be.a('function');
   });
 });
+
+});
+
 

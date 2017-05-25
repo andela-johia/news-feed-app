@@ -15,4 +15,7 @@ describe('<Signout />', () => {
   it('Should have an anchor tag that display the logout button', () => {
     expect(wrapper.find('a')).to.be.defined;
   });
+  it('Should have a <div> tag', () => {
+    expect(wrapper.find('div').children()).to.be.Called;
+  })
 })
