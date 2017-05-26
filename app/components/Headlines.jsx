@@ -50,8 +50,7 @@ export default class Headlines extends React.Component {
 
   /**
    *This function is reponsible for updating the state of the article prop when
-   the component is
-   rendered.
+   the component is rendered.
    * @return {object} updated state of articles
    * @memberof Headlines
    */
@@ -63,7 +62,6 @@ export default class Headlines extends React.Component {
 
   render() {
     const sortBy = this.state.sortBy.toUpperCase();
-
     const sourceName = this.state.sourceId;
     const newsName = sourceName.toUpperCase().replace('-', ' ');
 
@@ -71,7 +69,6 @@ export default class Headlines extends React.Component {
       <div >
         <Signout />
         <div id="loginHeader">
-
         <br /><h4 id="headerStyle">{sortBy}{' News from '}{newsName}</h4>
         <br /> <br />
         <div className="container">
@@ -80,7 +77,6 @@ export default class Headlines extends React.Component {
               <Previous /></div>
           </div>
         </div>
-
         <div className="container">
           <div className="row">
             {this.state.articles.map(item => (

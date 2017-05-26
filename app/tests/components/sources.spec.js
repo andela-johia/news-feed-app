@@ -5,16 +5,14 @@ import { shallow, mount } from 'enzyme';
 import Sources from '../../components/Sources';
 import Signout from '../../components/Signout';
 
-function setup() {
-  const props = {
-    sources: {},
-    searchString:''
-  }
-  return shallow(<Sources {...props} />);
+
+const props = {
+  sources: {},
+  searchString:''
 }
 
 describe('<Sources/>', () => {
-  const wrapper = setup();
+  const wrapper = shallow(<Sources {...props} />);
   it('Should have the signout component', () => {
     expect(wrapper.find(Signout)).to.have.length(1);
   });
