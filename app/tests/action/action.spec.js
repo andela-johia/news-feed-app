@@ -5,6 +5,7 @@ import Dispatcher from '../../dispatcher/dispatcher';
 import mockNewsData from './mockData';
 import sinon, { mock } from 'sinon';
 import axios from './mockAxios';
+import headlineResults from './mockData';
 
 describe('News Actions', () => {
   let dispatcherSpy,
@@ -44,7 +45,7 @@ describe('News Actions', () => {
         expect(dispatcherSpy.apiStub).to.have.callCount(1);
         expect(dispatcherSpy).to.have.been.calledWith({
           type: 'GET_ARTICLES',
-          payLoad: headlineRes,
+          payLoad: headlineResults,
         })
       });
     });

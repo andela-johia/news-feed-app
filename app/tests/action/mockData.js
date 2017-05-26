@@ -1,6 +1,6 @@
 
 module.exports = {
-  
+
    mockNewsData:
   {
     "id": "abc-news-au",
@@ -15,7 +15,7 @@ module.exports = {
     ]
   },
 
-  headlineApi: {
+  headlineResults: {
     author: "Al Jazeera",
     description: "Kremlin offer comes amid row over US president's disclosure of ISIL-related information to top Russian diplomats.",
     publishedAt: "2017-05-17T17:24:16Z",
