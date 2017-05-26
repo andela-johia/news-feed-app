@@ -37,36 +37,17 @@ to choose from. The application offers an easy to use responsive UI. To view the
  * REACT: REACT is a JavaScript library that was developed by Facebook and is used for developing web application. REACT is the 'VIEW' in the MVC architecture. Web pages are structured in REACT with componenents which are very dynamic.
  * FLUX: Flux is an architecture used for building stable and efficient web applications. Flux design is basically a unidirectional flow of data.
 
-
-
-## Dependencies
-* axios
-* babel-loader
-* babel-preset-es2015
-* babel-preset-react
-* chai
-* eslint
-* express
-* flux
-* history
-* prop-types
-* react
-* react-dom
-* react-google-login
-* react-router
-* react-router-dom
-* webpack
-* Eslint
-* Enzyme
-
 ## Limitations
 * Users are only able to sign in with google plus.
 * Users cannot mark articles as favourites.
 * Users cannot share articles on Facebook or Twitter.
 
 ## Contributing to News Feed Application
- Contributions are always welcomed to the project. If you are interested in enhancing the features in the project you can fork the project to your repo, create a new branch and make the necessary enhancement. If you are unsure about certain areas in the project feel to ask for assistance. If the you wish to update an existing enhancement submit a pull request.
-
+ Contributions are always welcomed to the project. If you are interested in enhancing the features in the project, follow these simple steps:
+ * Fork the project to your repository then clone it to your local machine.
+ * Create a new branch and make the necessary enhancement to the features.
+ * If the you wish to update an existing enhancement submit a pull request.
+ * If you are unsure about certain areas in the project feel to ask for assistance.
 
 
 ## License

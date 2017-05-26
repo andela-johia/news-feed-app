@@ -6,7 +6,6 @@ class Api {
   /**
    *Gets the news sources from the Newsapi url and returns the JSON
    data as a promise value
-   *
    * @export
    * @returns {object | error} - returns different news sources in a JSON object
    */
@@ -18,7 +17,6 @@ class Api {
   /**
    *Gets the news articles for a particular source-id and returns it as
     a promise value.
-   *
    * @export
    * @param {string} source - source-id for a particular news source
    * @param {array} sortBy - sortBy parameter.

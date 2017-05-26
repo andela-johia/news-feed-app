@@ -38,7 +38,6 @@ export default class Headlines extends React.Component {
   }
 
   /**
-   *
    *This function unmounts the rendered component using the removeListener
    method and updates the
    *state of articles.

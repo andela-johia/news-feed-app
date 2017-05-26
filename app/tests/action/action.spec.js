@@ -20,15 +20,15 @@ describe('News Actions', () => {
     apiStub.restore();
   });
 
-  describe('getSources', () => {
+  describe('getSources',() => {
 
     it('Should dispatch the news sources to the store', () => {
       Action.getSources().then(() => {
         expect(dispatcherSpy.apiStub).to.have.callCount(1);
-        expect(dispatcherSpy).to.have.been.calledWith(
+        expect(dispatcherSpy).to.have.been.calledWith({
           type: 'GET_SOURCES',
           payLoad: mockNewsData,
-        );
+        });
       });
 
   });
@@ -37,23 +37,22 @@ describe('News Actions', () => {
   });
 });
 
-describe('getNewsHeadline', () => {
+  describe('getNewsHeadline', () => {
 
-  it('Should dispatch the news articles when called', () => {
-    Action.getNewsHeadlines().then(() => {
-      expect(dispatcherSpy.apiStub).to.have.callCount(1);
-      expect(dispatcherSpy).to.have.been.calledWith(
-        type: 'GET_ARTICLES',
-        payLoad: headlineRes,
-      )
+    it('Should dispatch the news articles when called', () => {
+      Action.getNewsHeadlines().then(() => {
+        expect(dispatcherSpy.apiStub).to.have.callCount(1);
+        expect(dispatcherSpy).to.have.been.calledWith({
+          type: 'GET_ARTICLES',
+          payLoad: headlineRes,
+        })
+      });
+    });
+
+    it('should be a function', () => {
+      expect(Action.getNewsHeadlines).to.be.a('function');
     });
   });
-
-  it('should be a function', () => {
-    expect(Action.getNewsHeadlines).to.be.a('function');
-  });
-});
-
 });
 
 

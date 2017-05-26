@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom';
 /**
  *-This class signs out a user profile from the News feed app and deletes
  their user profile from localStorage as well their auto generated id token
- *
  * @export
  * @class Signout
  * @extends {React.Component}
@@ -21,7 +20,8 @@ class Signout extends React.Component {
    *button is fired. the userprofile stored in localStorage is deleted and
    the user is redirected
    to the landing page.
-   * @returns {*} changes the state of the component
+   * @returns {object} changes the state of the component and returns an empty
+   *object
    * @memberof Signout
    */
   updateLogout() {

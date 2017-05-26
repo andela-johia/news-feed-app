@@ -3,7 +3,6 @@ import Dispatcher from '../dispatcher/dispatcher';
 
 /**
  *Listens and stores data from the action according to their action type
- *
  * @class HeadlineStore
  * @extends {EventEmitter}
  */
@@ -15,7 +14,6 @@ class HeadlineStore extends EventEmitter {
 /**
  * Returns a change in the news article data upon mounting in the headline
  *  component.
- *
  * @returns {object} - updated articles props
  * @memberof FeedStore
 **/
