@@ -13,7 +13,7 @@ function setup() {
   return shallow(<Sources {...props} />);
 }
 
-describe('Testing <Sources/> Component', () => {
+describe('<Sources/>', () => {
   const wrapper = setup();
   it('Should have the signout component', () => {
     expect(wrapper.find(Signout)).to.have.length(1);
