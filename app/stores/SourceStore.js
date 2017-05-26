@@ -14,9 +14,7 @@ class SourceStore extends EventEmitter {
   /**
    * stores and returns a change in the news sources data from the action upon
    * mounting in the source component.
-   *
-   * @returns
-   *
+   * @returns {object} updated sources props
    * @memberof FeedStore
    */
   fetchSources() {
@@ -24,20 +22,12 @@ class SourceStore extends EventEmitter {
   }
 
   /**
-   * Returns a change in the news article data upon mounting in the headline
-   *  component.
-   * @returns - Updated articles prop.
-   *
-   * @memberof FeedStore
-   */
-
-  /**
    * This function listens for payLoad from the action and stores them
    * according to their action type.
    *
    * @param {object} action - The payload delivered by the dispatcher to the
    *  store.
-   *
+   * @return {object} updated news sources from the action
    * @memberof FeedStore
    */
   handleSources(action) {

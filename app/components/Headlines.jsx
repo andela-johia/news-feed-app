@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import HeadlineStore from '../stores/HeadlineStore';
 import Action from '../action/NewsAction';
-import Signout from './Signout';
-import Previous from './Previous';
+import Signout from './Signout.jsx';
+import Previous from './Previous.jsx';
 
 /**
  *This component renders the news articles for different news sources.
@@ -29,8 +29,7 @@ export default class Headlines extends React.Component {
    * This function mounts the getNewsHeadlines action function when it is about
    *to be rendered on the DOM. Props are passed to the action method and an
    API call is made.
-   *The store updates the state of the article prop when the componentDidMount
-   function is fired.
+   * @return {void} sets the current state
    * @memberof Headlines
    */
   componentDidMount() {
@@ -43,6 +42,7 @@ export default class Headlines extends React.Component {
    *This function unmounts the rendered component using the removeListener
    method and updates the
    *state of articles.
+   * @return {void} sets the updated state
    * @memberof Headlines
    */
   componentWillUnmount() {
@@ -53,6 +53,7 @@ export default class Headlines extends React.Component {
    *This function is reponsible for updating the state of the article prop when
    the component is
    rendered.
+   * @return {object} updated state of articles
    * @memberof Headlines
    */
   updateArticles() {

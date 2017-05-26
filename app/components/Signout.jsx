@@ -1,7 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import history from './History';
-
 
 /**
  *-This class signs out a user profile from the News feed app and deletes
@@ -23,7 +21,7 @@ class Signout extends React.Component {
    *button is fired. the userprofile stored in localStorage is deleted and
    the user is redirected
    to the landing page.
-   * @static
+   * @returns {*} changes the state of the component
    * @memberof Signout
    */
   updateLogout() {
@@ -32,10 +30,6 @@ class Signout extends React.Component {
   }
 
   render() {
-    const anchorStyle = {
-      textDecoration: 'none',
-      marginRight: 50,
-    };
     return (
       <div>
         <nav>
@@ -44,7 +38,7 @@ class Signout extends React.Component {
             <ul id="nav-mobile" className="right hide-on-med-and-down">
               <li><button
 className="waves-effect waves-light btn red"
-                onClick={this.updateLogout} style={anchorStyle}>{'Logout'}
+                onClick={this.updateLogout} id="anchorStyle">{'Logout'}
               </button></li>
             </ul>
           </div>
@@ -54,4 +48,8 @@ className="waves-effect waves-light btn red"
   }
 }
 export default withRouter(Signout);
+
+Signout.propTypes = {
+  history: React.PropTypes.object,
+};
 

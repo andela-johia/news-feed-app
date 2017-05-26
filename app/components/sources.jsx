@@ -1,7 +1,7 @@
 import React from 'react';
 import SourceStore from '../stores/SourceStore';
 import Action from '../action/NewsAction';
-import Signout from './Signout';
+import Signout from './Signout.jsx';
 
 
 /**
@@ -30,6 +30,7 @@ export default class Sources extends React.Component {
    *The store updates the state of the sources prop when the componentDidMount
     function is fired.
    * @memberof Sources
+   * @return {void} sets the state of sources
    */
   componentDidMount() {
     Action.getSources();
@@ -40,7 +41,7 @@ export default class Sources extends React.Component {
    *This function unmounts the rendered component using the removeListener
    method and updates the
    *state of the sources prop.
-   *
+   * @return {void} sets the new state
    * @memberof Sources
    */
   componentWillUnmount() {
@@ -50,9 +51,10 @@ export default class Sources extends React.Component {
   /**
    * Returns a new state of the sources when the store has been updated
    * upon rendering of the
-   *component.
+   * component.
    * @memberof Sources
-   */
+   * @returns {object} set the new state for sources
+   **/
   updateNewsFeed() {
     this.setState({ sources: SourceStore.fetchSources() });
   }
@@ -60,10 +62,9 @@ export default class Sources extends React.Component {
 
   /**
    * This function sets the change of state of the search value in real time.
-   *
    * @param {string} event - this param listens for any change in event upon
    *  searching.
-   *
+   * @return {*} returns the state change of the search input
    * @memberof Sources
    */
   handleChange(event) {

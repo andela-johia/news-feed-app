@@ -13,11 +13,7 @@ class Api {
   static getNewsFeed() {
     const encodedURI = `${baseUrl}sources?language=en`;
     return axios.get(encodedURI)
-      .then((res) => {
-        return res.data.sources;
-      }).catch((error) => {
-        return error;
-      });
+      .then(res => res.data.sources).catch(error => error);
   }
   /**
    *Gets the news articles for a particular source-id and returns it as
@@ -32,11 +28,7 @@ class Api {
     const encodedUrl = `${baseUrl}articles?source=${source}`;
     const url = `${encodedUrl}&sortBy=${sortBy}&apiKey=${process.env.API_KEY}`;
     return axios.get(url)
-      .then((res) => {
-        return res.data.articles;
-      }).catch((error) => {
-        return error;
-      });
+      .then(res => res.data.articles).catch(error => error);
   }
 }
 
