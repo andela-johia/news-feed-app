@@ -1,11 +1,19 @@
 import Dispatcher from '../dispatcher/dispatcher';
 import Api from '../components/Api';
 
+/**
+ * Gets the new sources and news headline from the API and the dispatcher
+ * dispatches it to the store.
+ * @class Action
+ */
 class Action {
+
   /**
-   * This function get the news source from the api function a dispatcher
-   *  dispatches to the store.
-   * @export
+   *
+   *This function gets the sources JSON data from the api function
+   * @static
+   * @returns {array} sources - returns an array of sources
+   * @memberof Action
    */
   static getSources() {
     return Api.getNewsFeed().then((result) => {
@@ -19,9 +27,11 @@ class Action {
   /**
    *
    *This function get the headlines JSON data from the api function
-   * @export
+   * @static
+   * @return {array} articles - dispatches an array of articles
    * @param {string} source - name of the source
    * @param {array} sortBy - sort by parameter (top or latest)
+   * @memberof Action
    */
   static getNewsHeadlines(source, sortBy) {
     return Api.getHeadLines(source, sortBy).then((articles) => {

@@ -2,6 +2,10 @@ import axios from 'axios';
 
 const baseUrl = 'https://newsapi.org/v1/';
 
+/**
+ * Gets news sources and new headline from the api
+ * @class Api
+ */
 class Api {
   /**
    *Gets the news sources from the Newsapi url and returns the JSON

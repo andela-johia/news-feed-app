@@ -17,7 +17,8 @@ class Login extends React.Component {
 
   /**
    *This function stores the user profile of a google user to local storage.
-   *
+   * @return {object} gets the userprofile and google id and stores it in an
+   * object
    * @param {string} response - this param gets the google user profile
    * upon sign in
    *
@@ -79,3 +80,8 @@ class Login extends React.Component {
   }
 }
 export default withRouter(Login);
+
+Login.propTypes = {
+  history: React.PropTypes.object,
+};
+
