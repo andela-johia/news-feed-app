@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import { expect } from 'chai';
 import Headlines from '../../components/Headlines';
 import Signout from '../../components/Signout';
@@ -12,7 +12,7 @@ describe('<HeadLines />', () => {
         source: 'espn',
       },
     },
-
+    articles: [],
   };
   const wrapper = shallow(<Headlines {...props} />);
   it('Should have the Signout component', () => {
