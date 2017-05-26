@@ -36,13 +36,6 @@ class Login extends React.Component {
 
 
   render() {
-    const formStyle = {
-      align: 'center',
-      margin: '0 auto',
-      textAlign: 'center',
-      marginTop: '150px',
-      marginLeft: '450px',
-    };
     const googleId = process.env.GOOGLE_ID;
     return (
       <div>
@@ -55,7 +48,7 @@ class Login extends React.Component {
             </div>
           </nav>
         </div>
-        <div className="row" style={formStyle}>
+        <div className="row" id="formStyle">
           <div className="col s12 m6">
             <div className="card  red lighten-2">
               <div className="card-content white-text">
