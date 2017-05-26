@@ -25,7 +25,7 @@ describe('<HeadLines />', () => {
     expect(wrapper.state().sourceId).to.be.a('string');
   });
 
-  it('Renders the headline component', () => {
+  it('Should render the news articles', () => {
     expect(wrapper.find('.container')).to.be.defined;
   });
 

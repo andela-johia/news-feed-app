@@ -9,7 +9,7 @@ import getSource from './mockStoreData';
 const store = rewire('../../stores/SourceStore');
 const registerSpy = sinon.spy(Dispatcher, 'register');
 
-describe('Source store', () => {
+describe('Source Store', () => {
 
     Dispatcher.dispatch ({
       type: 'GET_SOURCES',
@@ -23,7 +23,7 @@ describe('Source store', () => {
     registerSpy.restore();
   });
 
-  it('should register a callback with the dispatcher', () => {
+  it('Should register a callback with the dispatcher', () => {
     expect(registerSpy.callCount).to.equal(1);
   });
   it('Should register an object containing the actionType and the payload', () => {

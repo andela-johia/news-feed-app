@@ -24,10 +24,10 @@ describe('<Sources/>', () => {
   it('Should have a button that handles onClick event', () => {
     expect(wrapper.find('button')).to.be.defined;
   });
-  it('should have a div that renders the JSX on the DOM', () => {
+  it('Should have a div that renders the JSX on the DOM', () => {
     expect(wrapper.find('.container')).to.be.defined;
   });
-  it('should have a textfield in the component for searching', () => {
+  it('Should have a textfield in the component for searching', () => {
     expect(wrapper.find('.input-field')).to.be.defined;
   });
   it('Should have its props rendered on the DOM', () => {
