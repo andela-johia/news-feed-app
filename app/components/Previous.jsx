@@ -19,7 +19,6 @@ class Previous extends React.Component {
    *component. On click of the back button the function is fired.
    * @return {void} changes the state of the component
    * @memberof Previous
-   *
    */
   updatePrevious() {
     this.props.history.push('/sources');

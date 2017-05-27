@@ -64,7 +64,7 @@ export default class Sources extends React.Component {
    * This function sets the change of state of the search value in real time.
    * @param {string} event - this param listens for any change in event upon
    * searching.
-   * @return {*} returns the state change of the search input
+   * @return {string} returns the new state change of the search input
    * @memberof Sources
    */
   handleChange(event) {
