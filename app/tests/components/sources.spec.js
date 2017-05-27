@@ -8,8 +8,8 @@ import Signout from '../../components/Signout';
 
 const props = {
   sources: {},
-  searchString:''
-}
+  searchString: '',
+};
 
 describe('<Sources/>', () => {
   const wrapper = shallow(<Sources {...props} />);
@@ -23,7 +23,6 @@ describe('<Sources/>', () => {
     expect(wrapper.setState().sources).to.have.length.not.to.equal(0);
   });
   it('Should have an updated searchString state', () => {
-    const wrapper = shallow(<Sources />);
     expect(wrapper.setState().sources).to.have.length.not.to.equal(0);
   });
   it('Should have a button that handles onClick event', () => {
