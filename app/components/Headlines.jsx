@@ -96,7 +96,7 @@ src={item.urlToImage} alt={item.title}
                   </div>
                 </div>
               </div>
-            ))};
+            ))}
           </div>
           </div>
         </div>
