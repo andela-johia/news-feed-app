@@ -1,7 +1,7 @@
 import React from 'react';
 
 /**
- *
+ * renders the sources in the sources component
  * @class NewsSources
  * @extends {React.Component}
  */
