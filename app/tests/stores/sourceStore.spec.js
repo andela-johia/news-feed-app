@@ -4,7 +4,7 @@ import SourceStore from '../../stores/SourceStore';
 import sinon from 'sinon';
 import getSources from '../../action/NewsAction';
 import rewire from 'rewire';
-import getSource from '../testData/mockStoreData';
+import getSource from '../testdata/mockStoreData';
 
 const store = rewire('../../stores/SourceStore');
 const registerSpy = sinon.spy(Dispatcher, 'register');

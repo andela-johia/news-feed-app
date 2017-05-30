@@ -4,7 +4,7 @@ import HeadlineStore from '../../stores/HeadlineStore';
 import sinon from 'sinon';
 import getSources from '../../action/NewsAction';
 import rewire from 'rewire';
-import getHeadline from '../testData/mockStoreData';
+import getHeadline from '../testdata/mockStoreData';
 
 const store = rewire('../../stores/HeadlineStore');
 const registerSpy = rewire('../../dispatcher/dispatcher');
