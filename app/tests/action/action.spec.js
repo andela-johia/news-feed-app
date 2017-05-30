@@ -2,10 +2,10 @@
 import { expect } from 'chai';
 import Action from '../../action/NewsAction';
 import Dispatcher from '../../dispatcher/dispatcher';
-import mockNewsData from './mockData';
+import mockNewsData from '../testData/mockActionData';
 import sinon, { mock } from 'sinon';
 import axios from './mockAxios';
-import headlineResults from './mockData';
+import headlineResults from '../testData/mockActionData';
 
 describe('News Actions', () => {
   let dispatcherSpy,

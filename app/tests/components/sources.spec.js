@@ -4,10 +4,11 @@ import { shallow, mount } from 'enzyme';
 
 import Sources from '../../components/Sources';
 import Signout from '../../components/Signout';
+import NewsSources from '../../components/NewsSources';
 
 
 const props = {
-  sources: {},
+  sources: [],
   searchString: '',
 };
 
@@ -39,5 +40,8 @@ describe('<Sources/>', () => {
   });
   it('Should have a <div> tag that renders the props', () => {
     expect(wrapper.find('div').children()).to.be.Called;
+  });
+  it('Should have news sources component', () => {
+    expect(wrapper.find(NewsSources)).have.length(1);
   });
 });

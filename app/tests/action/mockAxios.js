@@ -1,4 +1,4 @@
-import * as mock from './mockData';
+import * as mock from '../testData/mockActionData';
 
 const mockApiCall = {
   get() {

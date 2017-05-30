@@ -2,6 +2,7 @@ import React from 'react';
 import SourceStore from '../stores/SourceStore';
 import Action from '../action/NewsAction';
 import Signout from './Signout.jsx';
+import NewsSources from './NewsSources.jsx';
 
 
 /**
@@ -75,7 +76,6 @@ export default class Sources extends React.Component {
     const searchString = this.state.searchString.trim().toLowerCase();
     let sources = this.state.sources;
 
-
     if (searchString.length > 0) { // shorten the function
       sources = sources.filter((item) => {
         const itemName = item.name.trim().toLowerCase();
@@ -85,23 +85,6 @@ export default class Sources extends React.Component {
     if (typeof (searchString) === 'number') {
       return 'Error Invalid Input';
     }
-    const NewsSource = sources.map((item) => {
-      const sortsArray = item.sortBysAvailable;
-      const links = sortsArray.map(link => (
-        <a key={link} href={`#/sources/${item.id}/${link}`}>{link}{' News'}</a>
-      ));
-      return (<div className="col s12 m6" key={item.name}>
-        <div className="card small grey lighten-4" id="heightStyle">
-          <div className="card-content">
-            <span className="card-title">{item.name}</span>
-            <p>{item.description}</p>
-          </div>
-          <div className="card-action">
-            {links}
-          </div>
-        </div>
-      </div >);
-    });
     return (
       <div>
         <Signout />
@@ -120,7 +103,7 @@ export default class Sources extends React.Component {
           <br /><br /><br />
           <div className="container">
             <div className="row">
-              {NewsSource}
+            <NewsSources sourcesValue={sources} />
             </div>
           </div>
         </div>

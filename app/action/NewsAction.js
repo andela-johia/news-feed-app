@@ -6,7 +6,7 @@ import Api from '../components/Api';
  * dispatches it to the store.
  * @class Action
  */
-class Action {
+class NewsAction {
 
   /**
    *
@@ -43,5 +43,5 @@ class Action {
   }
 }
 
-export default Action;
+export default NewsAction;
 
