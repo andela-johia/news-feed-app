@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import HeadlineStore from '../stores/HeadlineStore';
-import Action from '../action/NewsAction';
+import NewsAction from '../action/NewsAction';
 import Signout from './Signout.jsx';
 import Previous from './Previous.jsx';
 
@@ -33,7 +33,7 @@ export default class Headlines extends React.Component {
    * @memberof Headlines
    */
   componentDidMount() {
-    Action.getNewsHeadlines(this.state.sourceId, this.state.sortBy);
+    NewsAction.getNewsHeadlines(this.state.sourceId, this.state.sortBy);
     HeadlineStore.on('change', this.updateArticles);
   }
 

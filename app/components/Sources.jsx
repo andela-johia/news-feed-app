@@ -1,6 +1,6 @@
 import React from 'react';
 import SourceStore from '../stores/SourceStore';
-import Action from '../action/NewsAction';
+import NewsAction from '../action/NewsAction';
 import Signout from './Signout.jsx';
 import NewsSources from './NewsSources.jsx';
 
@@ -34,7 +34,7 @@ export default class Sources extends React.Component {
    * @return {void} sets the state of sources
    */
   componentDidMount() {
-    Action.getSources();
+    NewsAction.getSources();
     SourceStore.on('change', this.updateNewsFeed);
   }
 
