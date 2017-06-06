@@ -1,25 +1,38 @@
 import React from 'react';
 import GoogleLogin from 'react-google-login';
 
+/**
+ * Renders a google signin feature for the news feed application
+ *
+ * @export
+ * @class Login
+ * @extends {React.Component}
+ */
 export default class Login extends React.Component {
-  constructor(props) {
-    super(props);
 
-    this.responseGoogle = this.responseGoogle.bind(this);
-  }
-  responseGoogle(response) {
+  /**
+   *This function stores the user profile of a google user to local storage.
+   *
+   * @param {any} response - this param gets the google user profile upon sign in
+   *
+   * @memberof Login
+   */
+  static responseGoogle(response) {
     const loginProfile = response.getBasicProfile();
     const userProfile = {};
     userProfile.name = loginProfile.getName();
     userProfile.email = loginProfile.getEmail();
     userProfile.idToken = response.googleId;
-      localStorage.setItem('userProfile', JSON.stringify(userProfile));
-      window.location = '#/sources';
-
+    localStorage.setItem('userProfile', JSON.stringify(userProfile));
+    window.location = '#/sources';
   }
-  errorGoogle(error) {
-    console.log('Oops something went wrong');
-  }
+  /**
+   *
+   *
+   * @param {any} error - an error response is returned if the user profile is invalid.
+   *
+   * @memberof Login
+   */
 
   render() {
     const formStyle = {
@@ -29,9 +42,6 @@ export default class Login extends React.Component {
       marginTop: '150px',
       marginLeft: '450px',
     };
-    const headerStyle = {
-      marginTop: -45,
-    }
     const googleId = '116314004036-ogkinrg0ms586tvar5c56dam8a8gfrcn.apps.googleusercontent.com';
     return (
       <div>
@@ -50,11 +60,12 @@ export default class Login extends React.Component {
                 <span className="card-title">Welcome to News Central</span>
                 <p>To sign in with google click the Sign in button </p>
                 <div className="card-action">
-                  <GoogleLogin className="waves-effect waves-light btn"
+                  <GoogleLogin
+                    className="waves-effect waves-light btn"
                     clientId={googleId}
-                    onSuccess={this.responseGoogle}
-                    onFailure={this.errorGoogle}
-                  >{'Sign In With   '}<i className="fa fa-google-plus"></i></GoogleLogin>
+                    onSuccess={Login.responseGoogle}
+                    onFailure={Login.responseGoogle}
+                  >{'Sign In With   '}<i className="fa fa-google-plus" /></GoogleLogin>
                 </div>
               </div>
             </div>
